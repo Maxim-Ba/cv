@@ -3,8 +3,7 @@ services:
   angular:
     container_name: angular
     build: ./
-    # ports:
-    # - "4000:4000"
+
     environment:
       - PORT=4000
     networks:
@@ -15,7 +14,7 @@ services:
       context: ./
       dockerfile: nginx
     ports:
-      - "80:80"
+      - "81:80"
     networks:
       - backend
     depends_on:
