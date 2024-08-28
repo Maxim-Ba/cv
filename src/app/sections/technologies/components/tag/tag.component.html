@@ -1,0 +1,6 @@
+<mat-chip-option
+  #thisOption
+  [selected]="selected()"
+  (selectionChange)="onSelect()"
+  [style]="thisOption.selected ? {color:'white', 'background-color':color}:''"
+>{{tagLabel}}</mat-chip-option>

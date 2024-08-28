@@ -1,0 +1,61 @@
+<button
+  mat-flat-button
+  (click)="openDialog()"
+>Написать мне</button>
+<ng-template
+  let-data
+  #modal
+>
+  <h2
+    mat-dialog-title
+    class="title"
+  >Написать мне</h2>
+  <mat-dialog-content>
+    <form
+      class="form"
+      [formGroup]="feedbackForm"
+      (ngSubmit)="send()"
+      id="feedback"
+    >
+      <app-form-field-item
+        [hint]="emailHint"
+        placeholder="Введите email"
+        name="email"
+        formControlName="email"
+        label="Email"
+        type="email"
+        [validator]="this.feedbackForm.controls.email.validator"
+      ></app-form-field-item>
+      <app-form-field-item
+        placeholder="Как вас зовут"
+        name="name"
+        formControlName="name"
+        label="Имя"
+        [hint]="nameHint"
+        [validator]="this.feedbackForm.controls.name.validator"
+      ></app-form-field-item>
+      <app-form-textarea-item
+        [hint]="messageHint"
+        placeholder="Введите текст сообщения"
+        name="message"
+        formControlName="message"
+        [validator]="this.feedbackForm.controls.message.validator"
+      ></app-form-textarea-item>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button
+      type="button"
+      (click)="closeDialog()"
+      mat-raised-button
+      [mat-dialog-close]="data"
+    >Закрыть</button>
+    <button
+      (click)="stabService.emitInProcessMessage()"
+      color="primary"
+      type="submit"
+      form="feedback"
+      mat-flat-button
+    >Отправить</button>
+  </mat-dialog-actions>
+</ng-template>

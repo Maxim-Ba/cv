@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <div class="form-control">
+    <label for="email"></label>
+    <input formControlName="email" type="text" id="email">
+
+    <label for="message"></label>
+    <textarea formControlName="message" id="message"></textarea>
+
+    <label for="phone"></label>
+    <input formControlName="phone" type="phone" id="phone">
+
+    <label for="attachmentFile"></label>
+    <input formControlName="attachmentFile" type="file" id="attachmentFile">
+  </div>
+</form>

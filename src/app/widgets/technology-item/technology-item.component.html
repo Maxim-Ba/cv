@@ -1,0 +1,7 @@
+<mat-chip (click)="openDialog()" [style]="isOpacity() ? {opacity:.5}:{}">
+  @if(logo){
+
+  <img matChipAvatar src={{logo}} alt={{title}} />
+  }
+  {{title}}
+</mat-chip>

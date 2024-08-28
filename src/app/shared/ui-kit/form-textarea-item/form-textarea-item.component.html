@@ -1,0 +1,17 @@
+<mat-form-field
+  appearance="outline"
+  class="custom-mat-form-field"
+>
+  <mat-label *ngIf="label">{{label}}</mat-label>
+  <textarea
+    class="textarea"
+    [disabled]="isDisabled"
+    matInput
+    [placeholder]="placeholder"
+    [formControl]="inputControl"
+    [name]="name"
+    (blur)="onTouch($event)"
+    [errorStateMatcher]="matcher"
+  ></textarea>
+  <mat-error>{{hint}}</mat-error>
+</mat-form-field>

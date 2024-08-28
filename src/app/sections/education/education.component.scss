@@ -1,0 +1,21 @@
+.edu-item{
+  margin-bottom: 16px;
+  p{
+    margin: 0;
+  }
+}
+.title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &>:first-child{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  &>:last-child{
+font-size: 16px;
+  }
+}
+.organization{
+  font-size: 14px;
+}

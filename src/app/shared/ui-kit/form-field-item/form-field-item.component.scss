@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin custom-mat-form-field( $palete) {
+  // $background-color: mat.get-theme-color($theme, primary, 400);
+  $color: map.get($palete, 200);
+
+  .custom-mat-form-field {
+
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused  .mdc-notched-outline__trailing, .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused  .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused  .mdc-notched-outline__leading
+    {
+      border-color: $color ;
+    }
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label, .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label--float-above{
+      color: $color;
+    }
+  }
+
+}
+
+
+

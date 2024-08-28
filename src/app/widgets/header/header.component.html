@@ -1,0 +1,69 @@
+<app-navbar>
+  <div
+    appMargins
+    class="header-content"
+  >
+    <app-gitlab-link></app-gitlab-link>
+    <a
+      mat-icon-anchor
+      matTooltip="Связаться со мной в Telegram"
+      href={{links.telegram.href}}
+      target="_blank"
+    >
+      <img
+        width="18px"
+        src="../../../assets/icons/telegram.svg"
+        alt={{links.telegram.label}}
+      >
+    </a>
+
+    <a
+      href={{links.whatsapp.href}}
+      target="_blank"
+      matTooltip="Связаться со мной в Whatsapp"
+    ><img
+        width="18px"
+        src="../../../assets/icons/whatsapp.svg"
+        alt={{links.whatsapp.label}}
+      ></a>
+
+    <a
+      mat-anchor
+      matTooltip="Напишите на мой Email"
+      href="mailto:{{links.email.href}}"
+      target="_blank"
+    >{{links.email.label}}</a>
+
+    <a
+      mat-icon-anchor
+      matTooltip="Скачать CV в PDF"
+      (click)="stabService.emitInProcessMessage()"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="download CV"
+        fontIcon="download"
+      ></mat-icon>
+    </a>
+
+    <app-contact-me></app-contact-me>
+    <div class="toggler-wrapper">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="download CV"
+        fontIcon="light_mode"
+      ></mat-icon>
+      <mat-slide-toggle
+        class="example-margin"
+        (change)="onDarkModeSwitch($event)"
+        [checked]="checked"
+        [disabled]="disabled"
+      ></mat-slide-toggle>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="download CV"
+        fontIcon="nightlight"
+      ></mat-icon>
+    </div>
+  </div>
+</app-navbar>

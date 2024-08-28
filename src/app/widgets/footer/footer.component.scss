@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color-footer($theme, $palete) {
+  $background-color: mat.get-theme-color($theme, primary, 400);
+  $color: map.get($palete, text);
+
+  footer {
+    padding-top: 16px;
+    color: $color !important;
+    background-color: $background-color !important;
+  }
+
+}
+.rights{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}

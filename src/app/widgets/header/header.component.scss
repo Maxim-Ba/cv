@@ -1,0 +1,30 @@
+:host{
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  .header-content{
+    width: 100%;
+    display: flex !important;
+    gap:8px;
+    align-items: center ;
+    app-gitlab-link{
+      margin-right: auto;
+    }
+    &>:nth-child(n){
+      display: flex;
+      align-items: center;
+      color: inherit;
+    }
+    .toggler-wrapper{
+      gap: 2px;
+      display: flex;
+      align-items: center;
+      .mdc-label{
+        align-self: center;
+        align-items: center;
+        display: flex;
+      }
+    }
+  }
+}

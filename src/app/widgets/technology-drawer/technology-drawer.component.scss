@@ -1,0 +1,60 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+.technology-drawer{
+  min-width: 500px;
+  max-width: 50%;
+  transform: translateX(100%);
+  border-radius: 8px;
+  transition: transform .3s;
+  position: absolute;
+  z-index: 100;
+  top:50%;
+  right: 0;
+  position: fixed;
+  padding: 10px;
+
+
+}
+.transition-on{
+  transform: translateX(-10px)
+}
+.backdrop{
+  display: none;
+  background-color: black;
+  opacity: .0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.backdrop-visible{
+  display: block;
+}
+
+@mixin color-technology-drawer($theme) {
+  $background-color: mat.get-theme-color($theme, primary, 300);
+    .technology-drawer{
+    background-color: $background-color;
+    }
+}
+.tags-wrapper{
+  display: flex;
+  gap: 2px;
+  margin-bottom: 16px;
+  & > span{
+    font-size: 400;
+  }
+}
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.title{
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}

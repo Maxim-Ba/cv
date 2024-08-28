@@ -1,0 +1,20 @@
+:host{
+  width: 100%;
+
+  .mat-mdc-chip {
+    width: 100%;
+    border-radius: 0;
+  }
+  .evolution-chip__action{
+    display: flex;
+    overflow-x: hidden;
+  }
+  .mdc-evolution-chip__text-label{
+    text-overflow: ellipsis;
+
+  }
+  .mdc-evolution-chip__graphic{
+    display: none;
+  }
+
+}

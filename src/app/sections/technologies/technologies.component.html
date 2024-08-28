@@ -1,0 +1,11 @@
+<app-tag-filter></app-tag-filter>
+<div class="chips-flow">
+  @for(tech of technologies;track tech.title ){
+  <app-technology-item
+    [title]="tech.title"
+    [desciption]="tech.desciption"
+    [tagIDs]="tech.tags"
+    [logo]="tech.logo"
+  ></app-technology-item>
+  }
+</div>

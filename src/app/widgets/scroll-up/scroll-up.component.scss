@@ -1,0 +1,18 @@
+@keyframes opacityProgress {
+  0% {
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+}
+:host{
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  z-index: 1000;
+  animation: opacityProgress auto ;
+  animation-timeline: scroll(root);
+
+
+}

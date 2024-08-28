@@ -1,0 +1,30 @@
+<div
+  class="backdrop"
+  [class.backdrop-visible]="technologiesService.isOpen"
+  (click)="close()"
+>
+</div>
+<div
+  class="technology-drawer"
+  [class.transition-on]="technologiesService.isOpen"
+>
+  <p class="title">{{technologiesService.title}}</p>
+  <p>{{technologiesService.description}}</p>
+  <!-- <div class="tags-wrapper">
+    <span>Теги:</span>
+    <div class="tags">
+
+      @for (tag of technologiesService.getTagsByTagNames(technologiesService.tagsIDs); track tag.id) {
+      <span>{{tag.name}} </span>
+      <app-tag
+        [color]="tag.color"
+        [id]="tag.id"
+        [tagLabel]="tag.name"
+      ></app-tag>
+      }
+
+    </div>
+
+  </div> -->
+  <button (click)="close()">close</button>
+</div>

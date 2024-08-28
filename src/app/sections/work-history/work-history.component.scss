@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin work-history-color( $palete, $value, $background-palette ) {
+  // $background-color: mat.get-theme-color($theme, primary, 400);
+  $color: map.get($palete, $value);
+  $color-bg: map.get($palete, 100);
+  $background-color: map.get($background-palette, background);
+  $radial-gradient: radial-gradient($color-bg 0%, $background-color 10%);
+
+  .work-item{
+    margin: 10px 0;
+    transition: background .7s;
+    &:hover{
+      .organization-name{
+        text-decoration: underline;
+        color: $color
+      }
+      // background-color:  $color-bg;
+      // background: $radial-gradient;
+      color: $color;
+    }
+  }
+}
+
+
+
+
+
+.organization-name{
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 0;
+}
+.technologies-title{
+  font-weight: 500;
+}
+.what-i-did{
+  font-weight: 500;
+}

@@ -1,0 +1,16 @@
+:host{
+  button {
+    margin: 0 20px;
+  }
+}
+.form{
+  min-width: 320px;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+.title{
+  margin-top: 20px;
+  text-align: center;
+  color: var(--mat-expansion-container-text-color);
+}

@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+.flex{
+  display: flex;
+}
+.flex-col{
+  flex-direction: column;
+}
+.h-screen{
+  min-height: 100vh;
+}
+.grow{
+  flex-grow: 1;
+}
+.app-wrapper{
+  width:100%;
+  overflow-x: hidden;
+  position: relative;
+
+}
+.chips-flow{
+  display: flex;
+  flex-flow: wrap;
+  gap: 8px;
+}
+.mat-expansion-panel{
+  box-shadow: none !important;
+}
+.panel-title{
+  font-size: 20px;
+}
+@mixin background-color-expansion-panel($bg-theme, $theme) {
+  $background-color: map.get($bg-theme, background);
+  $background-color-header: mat.get-theme-color($theme, primary, 300);
+  $background-color-header-hover: mat.get-theme-color($theme, primary, 400);
+    .mat-expansion-panel{
+    background-color: $background-color !important;
+    &:has(.mat-expanded) .mat-expansion-panel-header{
+        &:hover{
+          background-color: $background-color-header;
+        }
+      }
+      &:not(.mat-expanded) .mat-expansion-panel-header{
+        background-color: $background-color-header;
+        &:not([aria-disabled=true]):hover{
+          background-color: $background-color-header-hover !important;
+        }
+      }
+    }
+}
+.mat-mdc-form-field{
+  width: 100%;
+}
+.with-margin{
+  margin: 0 100px;
+  @media screen and (max-width:1300px) {
+    margin: 0 50px;
+
+  }
+  @media screen and (max-width:900px) {
+    margin: 0 30px
+  }
+  @media screen and (max-width:600px) {
+    margin: 0 16px
+  }
+}

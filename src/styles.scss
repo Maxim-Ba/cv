@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use "./app/widgets/technology-drawer/technology-drawer.component.scss" as drawer;
+@use "./app/app.component.scss" as expansion-panel;
+@use "./app/shared/ui-kit/navbar/navbar.component.scss" as toolbar;
+@use "./app/widgets/footer/footer.component.scss" as footer;
+@use "./app/shared/ui-kit/form-field-item/form-field-item.component.scss" as form-field;
+@use "./app/sections/work-history/work-history.component.scss" as work-history;
+
+@include mat.core();
+@import 'material-icons/iconfont/filled.css';
+@import 'material-icons/iconfont/outlined.css';
+
+
+$balashov-cv-client-primary: mat.define-palette(mat.$deep-purple-palette, 500);
+$balashov-cv-client-primary-dark: mat.define-palette(mat.$deep-purple-palette, 700);
+$balashov-cv-client-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+
+$balashov-cv-client-warn: mat.define-palette(mat.$red-palette);
+
+
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $balashov-cv-client-primary,
+    accent: $balashov-cv-client-accent,
+    warn: $balashov-cv-client-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $balashov-cv-client-primary-dark,
+    accent: $balashov-cv-client-accent,
+    warn: $balashov-cv-client-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+@include mat.all-component-themes($light-theme);
+@include drawer.color-technology-drawer($light-theme);
+@include expansion-panel.background-color-expansion-panel(mat.$light-theme-background-palette, $light-theme);
+// @include toolbar.color-toolbar($dark-theme,  mat.$dark-theme-foreground-palette);
+@include work-history.work-history-color($balashov-cv-client-primary, 500, mat.$light-theme-background-palette);
+
+
+html, body { height: 100%; }
+body { margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+}
+
+@include toolbar.color-toolbar($dark-theme,mat.$dark-theme-foreground-palette);
+@include footer.color-footer($dark-theme,mat.$dark-theme-foreground-palette);
+
+.theme-dark{
+  @include mat.all-component-colors($dark-theme);
+  @include drawer.color-technology-drawer($dark-theme);
+  @include expansion-panel.background-color-expansion-panel(mat.$dark-theme-background-palette, $dark-theme);
+  @include form-field.custom-mat-form-field($balashov-cv-client-primary);
+  @include work-history.work-history-color($balashov-cv-client-primary, 200, mat.$dark-theme-background-palette );
+
+}
+
