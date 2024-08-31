@@ -2,4 +2,4 @@
 
 Пет проект с использованием Angular, SSR, Angular Material
 
-http://maxim-balashov.ru/cv/
+http://cv.maxim-balashov.ru/
