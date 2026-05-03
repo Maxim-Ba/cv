@@ -1,9 +1,5 @@
-@for(tag of tags; track tag[1].id){
+@for(tag of tags(); track tag.id){
 <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-  <app-tag
-    [id]="tag[1].id"
-    [tagLabel]="tag[1].name"
-    [color]="tag[1].color"
-  ></app-tag>
+  <app-tag [id]="tag.id ?? 0" [tagLabel]="tag.name ?? ''" [color]="tag.hexColor ?? ''"></app-tag>
 </mat-chip-listbox>
 }

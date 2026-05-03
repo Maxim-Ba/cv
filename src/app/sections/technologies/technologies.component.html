@@ -1,7 +1,7 @@
 <app-tag-filter></app-tag-filter>
 <div class="chips-flow">
-  @for(tech of technologies; track tech.id){
-  <app-technology-item [title]="tech.title" [description]="tech.description" [tagIDs]="tech.tags"
-    [logo]="tech.logo"></app-technology-item>
+  @for(tech of filteredTechnologies; track tech.id){
+  <app-technology-item [title]="tech.title ?? ''" [description]="tech.description ?? null" [tags]="tech.tags ?? []"
+    [logo]="tech.logoUrl ?? null"></app-technology-item>
   }
 </div>

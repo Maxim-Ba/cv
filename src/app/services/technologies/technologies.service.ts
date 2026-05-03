@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
-import { TAGS } from '../../shared/constants/tags';
+import { TagDto } from '../../api/models/dto/tag-dto';
 
-type TTagID = string;
+type TTagID = number;
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,7 @@ type TTagID = string;
 export class TechnologiesService {
   title: string = '';
   description: string = '';
-  tagsIDs: string[] = [];
+  tags: TagDto[] = [];
   _isOpen = signal<boolean>(false);
 
   public get isOpen() {
@@ -19,10 +19,10 @@ export class TechnologiesService {
   onClose() {
     this._isOpen.set(false);
   }
-  onOpen(title: string, description: string, tagsIDs: string[]) {
-    this.description = description;
+  onOpen(title: string, description: string | null, tags: TagDto[]) {
+    this.description = description ?? '';
     this.title = title;
-    this.tagsIDs = tagsIDs;
+    this.tags = tags;
     this._isOpen.set(true);
   }
 
@@ -32,9 +32,5 @@ export class TechnologiesService {
         ? prev.filter((id) => id !== tagId)
         : [...prev, tagId];
     });
-  }
-
-  getTagsByTagNames(tagNames: string[]) {
-    return Object.values(TAGS).filter((tag) => tagNames.includes(tag.name));
   }
 }

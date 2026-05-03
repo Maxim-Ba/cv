@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:balashov-cv-client": "node dist/balashov-cv-client/server/server.mjs",
-    "docker:start": "npm run build && npm run serve:ssr:balashov-cv-client"
+    "docker:start": "npm run build && npm run serve:ssr:balashov-cv-client",
+    "generate:api": "swagger2openapi ../Go_Training/cv-backend/docs/swagger.json --outfile openapi.json && ng-openapi-gen --config ng-openapi-gen.json"
   },
   "private": true,
   "dependencies": {
@@ -44,7 +45,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-openapi-gen": "^1.0.5",
     "postcss": "^8.4.39",
+    "swagger2openapi": "^7.0.8",
     "typescript": "~5.4.2"
   }
 }

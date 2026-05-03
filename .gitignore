@@ -28,6 +28,9 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Generated API spec (converted from backend swagger)
+/openapi.json
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/

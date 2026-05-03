@@ -1,7 +1,6 @@
 import { TECHNOLOGIES } from '../../../shared/constants/technologies';
-import { IWorkHistoryItem } from '../types';
 
-export const histories: IWorkHistoryItem[] = [
+export const histories: any[] = [
   {
     name: 'АБ-Трейд',
     about: `Прошёл путь от этапа ТЗ и макетов до вывода приложения в продакшен. Принимал участие в разработке архитектуры и инфраструктуры. Занимался объединением 2-х проектов.`,
@@ -46,7 +45,7 @@ export const histories: IWorkHistoryItem[] = [
       TECHNOLOGIES['BroadcastChannel'],
       TECHNOLOGIES['SharedWorker'],
     ],
-    id: '1',
+    id: 1,
   },
   {
     name: 'Фриланс',
@@ -80,7 +79,7 @@ export const histories: IWorkHistoryItem[] = [
       TECHNOLOGIES['AntDesign'],
       TECHNOLOGIES['Express.js'],
     ],
-    id: '2',
+    id: 2,
   },
   {
     name: 'Производственная компания "Штрай", Космический центр им. Хруничева, ОКБ МЭИ',
@@ -102,6 +101,6 @@ export const histories: IWorkHistoryItem[] = [
       TECHNOLOGIES['CAM'],
       TECHNOLOGIES['CAD'],
     ],
-    id: '3',
+    id: 3,
   },
 ];

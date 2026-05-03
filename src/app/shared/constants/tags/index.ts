@@ -1,5 +1,3 @@
-import { ITag } from '../../types/types';
-
 export const TAGS = {
   Frontend: {
     color: '#f44336ab',
@@ -85,4 +83,4 @@ export const TAGS = {
     id: 'Frameworks',
     name: 'Frameworks',
   },
-} as const satisfies Record<string, ITag>;
+} as const;

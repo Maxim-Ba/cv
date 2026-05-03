@@ -1,6 +1,4 @@
-import { ITechnologyItem } from '../../types/types';
-
-export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
+export const TECHNOLOGIES: Record<string, any> = {
   Typescript: {
     title: 'Typescript',
     id: 'Typescript',

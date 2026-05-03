@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
-import { EDUCATION } from '../../shared/constants/education';
 import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/section-wrapper.component';
+import { EduApiService } from '../../services/api/edu-api.service';
+import { EducationDto } from '../../api/models/dto/education-dto';
 
 @Component({
   selector: 'app-education',
@@ -11,7 +12,15 @@ import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/sec
   styleUrl: './education.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EducationComponent {
+export class EducationComponent implements OnInit {
+  private eduApiService = inject(EduApiService);
+
   public title = 'Образование';
-  public education = EDUCATION;
+  public education = signal<EducationDto[]>([]);
+
+  ngOnInit(): void {
+    this.eduApiService.getEducation().subscribe((items) => {
+      this.education.set(items);
+    });
+  }
 }

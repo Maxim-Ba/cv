@@ -6,13 +6,14 @@
   </p>
   <p class="technologies-title">Что использовал в работе:</p>
   <div class="chips-flow">
-    @for (technology of work.technologies ; track technology.id) {
-    <app-technology-item [description]="technology.description" [tagIDs]="technology.tags" [title]="technology.title">
+    @for (technology of (work.technologies ?? []) ; track technology.id) {
+    <app-technology-item [description]="technology.description ?? null" [tags]="technology.tags ?? []"
+      [title]="technology.title ?? ''">
     </app-technology-item>
     }
   </div>
   <p class="what-i-did">Что я делал:</p>
-  @for (whatIDoItem of work.whatIDid ; track whatIDoItem) {
+  @for (whatIDoItem of (work.whatIDid ?? []) ; track whatIDoItem) {
   <p>
     {{whatIDoItem}}
   </p>

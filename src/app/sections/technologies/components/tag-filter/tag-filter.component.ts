@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { TAGS } from '../../../../shared/constants/tags';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { TagComponent } from '../tag/tag.component';
-import { ITag } from '../../../../shared/types/types';
+import { TagDto } from '../../../../api/models/dto/tag-dto';
 import { MatChipsModule } from '@angular/material/chips';
+import { TagApiService } from '../../../../services/api/tag-api.service';
 
 @Component({
   selector: 'app-tag-filter',
@@ -12,6 +12,13 @@ import { MatChipsModule } from '@angular/material/chips';
   styleUrl: './tag-filter.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TagFilterComponent {
-  tags: [string, ITag][] = Object.entries(TAGS);
+export class TagFilterComponent implements OnInit {
+  private tagApiService = inject(TagApiService);
+  tags = signal<TagDto[]>([]);
+
+  ngOnInit(): void {
+    this.tagApiService.getTags().subscribe((tags) => {
+      this.tags.set(tags);
+    });
+  }
 }

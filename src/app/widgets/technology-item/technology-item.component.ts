@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { TechnologiesService } from '../../services/technologies/technologies.service';
+import { TagDto } from '../../api/models/dto/tag-dto';
 
 @Component({
   selector: 'app-technology-item',
@@ -19,20 +20,20 @@ import { TechnologiesService } from '../../services/technologies/technologies.se
 })
 export class TechnologyItemComponent {
   @Input({ required: true }) title: string = '';
-  @Input({ required: true }) description: string = '';
-  @Input({ required: true }) tagIDs: string[] = [];
+  @Input({ required: true }) description: string | null = null;
+  @Input({ required: true }) tags: TagDto[] = [];
   @Input() logo: string | null = null;
 
   technologiesService = inject(TechnologiesService);
   openDialog(): void {
-    this.technologiesService.onOpen(this.title, this.description, this.tagIDs);
+    this.technologiesService.onOpen(this.title, this.description, this.tags);
   }
   isOpacity: Signal<boolean> = computed(() => {
     if (!this.technologiesService.tagFilter().length) {
       return false;
     }
-    const res = !this.tagIDs.some((tagId) =>
-      this.technologiesService.tagFilter().includes(tagId)
+    const res = !this.tags.some((tag) =>
+      this.technologiesService.tagFilter().includes(tag.id ?? -1)
     );
     return res;
   });

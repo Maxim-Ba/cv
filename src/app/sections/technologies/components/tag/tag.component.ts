@@ -19,7 +19,7 @@ import { NgIf, NgStyle } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagComponent {
-  @Input({ required: true }) id!: string;
+  @Input({ required: true }) id!: number;
   @Input({ required: true }) tagLabel!: string;
   @Input({ required: true }) color!: string;
 
