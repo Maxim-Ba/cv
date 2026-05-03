@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output } from '@angular/core';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
 import {
   MatSlideToggleChange,
@@ -27,6 +27,7 @@ import { NavbarComponent } from '../../shared/ui-kit/navbar/navbar.component';
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   @Output()

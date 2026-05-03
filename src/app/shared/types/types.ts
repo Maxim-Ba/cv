@@ -3,7 +3,7 @@ import { TAGS } from '../constants/tags';
 export interface ITechnologyItem {
   title: string;
   id: string;
-  desciption: string;
+  description: string;
   tags: (keyof typeof TAGS)[];
   logo: string | null;
 }

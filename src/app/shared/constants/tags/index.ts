@@ -1,6 +1,6 @@
-// import { ITag } from '../../types/types';
+import { ITag } from '../../types/types';
 
-export const TAGS /*: Record<string, ITag> */ = {
+export const TAGS = {
   Frontend: {
     color: '#f44336ab',
     id: 'Frontend',
@@ -35,7 +35,7 @@ export const TAGS /*: Record<string, ITag> */ = {
     color: '#29c181ab',
     id: 'Charts',
     name: 'Отображение',
-    tooltipTitle: 'Отображение данных (граффики)',
+    tooltipTitle: 'Отображение данных (графики)',
   },
   FP: {
     color: '#9b0a13ab',
@@ -85,4 +85,4 @@ export const TAGS /*: Record<string, ITag> */ = {
     id: 'Frameworks',
     name: 'Frameworks',
   },
-} as const;
+} as const satisfies Record<string, ITag>;

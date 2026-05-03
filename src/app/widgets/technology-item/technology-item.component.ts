@@ -19,13 +19,13 @@ import { TechnologiesService } from '../../services/technologies/technologies.se
 })
 export class TechnologyItemComponent {
   @Input({ required: true }) title: string = '';
-  @Input({ required: true }) desciption: string = '';
+  @Input({ required: true }) description: string = '';
   @Input({ required: true }) tagIDs: string[] = [];
   @Input() logo: string | null = null;
 
   technologiesService = inject(TechnologiesService);
   openDialog(): void {
-    this.technologiesService.onOpen(this.title, this.desciption, this.tagIDs);
+    this.technologiesService.onOpen(this.title, this.description, this.tagIDs);
   }
   isOpacity: Signal<boolean> = computed(() => {
     if (!this.technologiesService.tagFilter().length) {

@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApplicationStabService } from '../../services/application-stab/application-stab.service';
 import { Subscription } from 'rxjs';
@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
   imports: [],
   templateUrl: './snack-bar.component.html',
   styleUrl: './snack-bar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SnackBarComponent implements OnInit, OnDestroy {
   private snackBar = inject(MatSnackBar);

@@ -19,10 +19,9 @@ export class FeedbackComponent {
     phone: new FormControl(null),
     attachmentFile: new FormControl(null),
   });
-  onSubmit = (e: SubmitEvent) => {
-    console.log(this.form.value);
+  onSubmit = (_e: SubmitEvent) => {
     if (this.form.valid) {
-      console.log(this.form.value);
+      // TODO: реализовать отправку формы
     }
   };
 }

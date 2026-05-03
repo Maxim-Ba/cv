@@ -4,7 +4,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Typescript: {
     title: 'Typescript',
     id: 'Typescript',
-    desciption:
+    description:
       'TypeScript делает код понятнее и надёжнее, добавляет статическую типизацию (переменные привязаны к конкретным типам данных) и может быть скомпилирован в JavaScript.',
     tags: ['ProgLang', 'Frontend', 'Backend'],
     logo: null,
@@ -12,7 +12,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   React: {
     title: 'React',
     id: 'React',
-    desciption:
+    description:
       'Одна из популярных JavaScript-библиотека для создания пользовательских интерфейсов',
     tags: ['Frontend'],
     logo: null,
@@ -20,14 +20,14 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Redux: {
     title: 'Redux',
     id: 'Redux',
-    desciption: 'Стейт менеджер веб-приложения',
+    description: 'Стейт менеджер веб-приложения',
     tags: ['StateManager'],
     logo: null,
   },
   Next: {
     title: 'Next',
     id: 'Next',
-    desciption:
+    description:
       'Это основанный на React фреймворк, предназначенный для разработки веб-приложений, обладающих функционалом, выходящим за рамки SPA',
     tags: ['Backend', 'SSR', 'Frontend', 'Frameworks'],
     logo: null,
@@ -35,7 +35,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Chromatic: {
     title: 'Chromatic',
     id: 'Chromatic',
-    desciption:
+    description:
       'Инструмент визуального тестирования, который сканирует все возможные состояния пользовательского интерфейса в разных браузерах, чтобы выявить ошибки во внешнем виде и функциональности.',
     tags: ['Testing'],
     logo: null,
@@ -43,35 +43,35 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Loki: {
     title: 'Loki',
     id: 'Loki',
-    desciption: 'Инструмент визуального регрессионного тестирования',
+    description: 'Инструмент визуального регрессионного тестирования',
     tags: ['Testing'],
     logo: null,
   },
   Docker: {
     title: 'Docker',
     id: 'Docker',
-    desciption: 'Инструмент для контейнеризации',
+    description: 'Инструмент для контейнеризации',
     tags: ['Devops'],
     logo: null,
   },
   'Gitlab-CI': {
     title: 'Gitlab-CI',
     id: 'Gitlab-CI',
-    desciption: 'Инструмент для автоматизации CI/CD процессов',
+    description: 'Инструмент для автоматизации CI/CD процессов',
     tags: ['Devops'],
     logo: null,
   },
   Webpack: {
     title: 'Webpack',
     id: 'Webpack',
-    desciption: 'Популярный сборщик веб-приложений',
+    description: 'Популярный сборщик веб-приложений',
     tags: ['Frontend'],
     logo: null,
   },
   Websocket: {
     title: 'Websocket',
     id: 'Websocket',
-    desciption:
+    description:
       'Двунаправленный протокол связи, позволяющий обмениваться сообщениями в режиме реального времени',
     tags: ['Frontend', 'Backend'],
     logo: null,
@@ -79,7 +79,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Storybook: {
     title: 'Storybook',
     id: 'Storybook',
-    desciption:
+    description:
       'Инструмент для организации пользовательских интерфейсов, который делает процессы разработки компонентов, тестирования и создания документации более эффективными и простыми',
     tags: ['Testing', 'UI'],
     logo: null,
@@ -87,7 +87,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   'Node.js': {
     title: 'Node.js',
     id: 'Node.js',
-    desciption:
+    description:
       'Среда выполнения кода JavaScript, которая позволяет писать серверный код и скрипты вне браузера',
     tags: ['Backend', 'CodeGeneration'],
     logo: null,
@@ -95,14 +95,14 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Bash: {
     title: 'Bash',
     id: 'Bash',
-    desciption: 'Оболочка операционных систем Unix ',
+    description: 'Оболочка операционных систем Unix ',
     tags: ['Devops'],
     logo: null,
   },
   Vite: {
     title: 'Vite',
     id: 'Vite',
-    desciption:
+    description:
       'Быстрый сборщик веб-приложений более легкий в настройке конфигурации чем webpack',
     tags: ['Frontend'],
     logo: null,
@@ -110,7 +110,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   SharedWorker: {
     title: 'SharedWorker',
     id: 'SharedWorker',
-    desciption:
+    description:
       'Worker, который создает общий контекст выполнения, доступный для нескольких окон, вкладок или фреймов приложения',
     tags: ['Frontend'],
     logo: null,
@@ -118,7 +118,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   BroadcastChannel: {
     title: 'BroadcastChannel',
     id: 'BroadcastChannel',
-    desciption:
+    description:
       'Канал, на который можно подписаться из любого контекста просмотра данного источника',
     tags: ['Frontend'],
     logo: null,
@@ -126,7 +126,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   JavaScript: {
     title: 'JavaScript',
     id: 'JavaScript',
-    desciption:
+    description:
       'Мультипарадигменный язык программирования с прототипным наследованием',
     tags: ['ProgLang'],
     logo: null,
@@ -134,63 +134,63 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Git: {
     title: 'Git',
     id: 'Git',
-    desciption: 'Система контроля версий',
+    description: 'Система контроля версий',
     tags: [],
     logo: null,
   },
   Bootstrap: {
     title: 'Bootstrap',
     id: 'Bootstrap',
-    desciption: 'Популярный UI фреймворк',
+    description: 'Популярный UI фреймворк',
     tags: ['Frontend', 'UI'],
     logo: null,
   },
   Sass: {
     title: 'Sass',
     id: 'Sass',
-    desciption: 'CSS препроцессор',
+    description: 'CSS препроцессор',
     tags: ['UI', 'Frontend'],
     logo: null,
   },
   Figma: {
     title: 'Figma',
     id: 'Figma',
-    desciption: 'Создание макетов пользовательский интерфейсов',
+    description: 'Создание макетов пользовательский интерфейсов',
     tags: ['UI'],
     logo: null,
   },
   MongoDB: {
     title: 'MongoDB',
     id: 'MongoDB',
-    desciption: 'Документная база данных',
+    description: 'Документная база данных',
     tags: ['Backend', 'Database'],
     logo: null,
   },
   PostgreSQL: {
     title: 'PostgreSQL',
     id: 'PostgreSQL',
-    desciption: 'Реляционная база данных',
+    description: 'Реляционная база данных',
     tags: ['Backend', 'Database'],
     logo: null,
   },
   AntDesign: {
     title: 'AntDesign',
     id: 'AntDesign',
-    desciption: 'UI библиотека',
+    description: 'UI библиотека',
     tags: ['UI', 'Frontend'],
     logo: null,
   },
   'Express.js': {
     title: 'Express.js',
     id: 'Express.js',
-    desciption: 'Backend фреймворк на node.js',
+    description: 'Backend фреймворк на node.js',
     tags: ['Backend'],
     logo: null,
   },
   'ISO 7 bit': {
     title: 'ISO 7 bit',
     id: 'ISO 7 bit',
-    desciption:
+    description:
       'Язык программирования используемый в ЧПУ станках для управления электроавтоматикой',
     tags: ['ProgLang'],
     logo: null,
@@ -198,7 +198,7 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   'CNC postprocessors': {
     title: 'CNC postprocessors',
     id: 'CNC postprocessors',
-    desciption:
+    description:
       'Программа используемая для создания кода на языке ISO 7 bit из сода CAM системы',
     tags: ['CodeGeneration'],
     logo: null,
@@ -206,29 +206,29 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   CAM: {
     title: 'CAM',
     id: 'CAM',
-    desciption: 'Система автоматической подготовки управляющих программ',
+    description: 'Система автоматической подготовки управляющих программ',
     tags: [],
     logo: null,
   },
   CAD: {
     title: 'CAD',
     id: 'CAD',
-    desciption:
-      'Система автоматизированного проектирования для создания 3-D моделей и техногодической документации',
+    description:
+      'Система автоматизированного проектирования для создания 3-D моделей и технологической документации',
     tags: [],
     logo: null,
   },
   NGINX: {
     title: 'NGINX',
     id: 'NGINX',
-    desciption: 'Веб-сервер',
+    description: 'Веб-сервер',
     tags: ['Backend', 'Devops'],
     logo: null,
   },
   Python: {
     title: 'Python',
     id: 'Python',
-    desciption:
+    description:
       'Скриптовый язык программирования, подходит для решения разнообразных задач на разных платформах',
     tags: ['ProgLang'],
     logo: null,
@@ -236,14 +236,14 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Django: {
     title: 'Django',
     id: 'Django',
-    desciption: 'Фреймворк Python для создания веб-приложений',
+    description: 'Фреймворк Python для создания веб-приложений',
     tags: ['Backend', 'Frameworks'],
     logo: null,
   },
   Nest: {
     title: 'Nest',
     id: 'Nest',
-    desciption:
+    description:
       'Backend фреймворк на node.js, может использовать в своей основе Express.js',
     tags: ['Backend', 'Frameworks'],
     logo: null,
@@ -251,56 +251,56 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   MUI: {
     title: 'MUI',
     id: 'MUI',
-    desciption: 'Material UI - популярная React библиотека компонентов',
+    description: 'Material UI - популярная React библиотека компонентов',
     tags: ['Frontend', 'UI'],
     logo: null,
   },
   'Chakra UI': {
     title: 'Chakra UI',
     id: 'Chakra UI',
-    desciption: 'UI фреймворк',
+    description: 'UI фреймворк',
     tags: ['Frontend', 'UI'],
     logo: null,
   },
   'Django REST Framework': {
     title: 'Django REST Framework',
     id: 'Django REST Framework',
-    desciption: 'Фреймворк для создания REST на Django',
+    description: 'Фреймворк для создания REST на Django',
     tags: ['Backend', 'Frameworks'],
     logo: null,
   },
   Haskell: {
     title: 'Haskell',
     id: 'Haskell',
-    desciption: 'Фунционаяялный язык программирования',
+    description: 'Функциональный язык программирования',
     tags: ['FP', 'ProgLang'],
     logo: null,
   },
   Angular: {
     title: 'Angular',
     id: 'Angular',
-    desciption: 'ООП Фреймворк использующий DI, модульность, декораторы...',
+    description: 'ООП Фреймворк использующий DI, модульность, декораторы...',
     tags: ['Frameworks', 'Frontend'],
     logo: null,
   },
   'React-hook-form': {
     title: 'React-hook-form',
     id: 'React-hook-form',
-    desciption: 'Библиотека управления формами',
+    description: 'Библиотека управления формами',
     tags: ['Forms', 'Frontend'],
     logo: null,
   },
   Formik: {
     title: 'Formik',
     id: 'Formik',
-    desciption: 'Библиотека управления формами',
+    description: 'Библиотека управления формами',
     tags: ['Forms', 'Frontend'],
     logo: null,
   },
   Tailwind: {
     title: 'Tailwind',
     id: 'Tailwind',
-    desciption:
+    description:
       'UI библиотека для стилизации приложения основанная на селекторах классов',
     tags: ['Frontend', 'UI'],
     logo: null,
@@ -308,42 +308,42 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Highcharts: {
     title: 'Highcharts',
     id: 'Highcharts',
-    desciption: 'Библиотека для создания графиков и диаграмм',
+    description: 'Библиотека для создания графиков и диаграмм',
     tags: ['Charts'],
     logo: null,
   },
   D3: {
     title: 'D3',
     id: 'D3',
-    desciption: 'Функциональная библиотека для отображения данных',
+    description: 'Функциональная библиотека для отображения данных',
     tags: ['Charts', 'FP'],
     logo: null,
   },
   Lodash: {
     title: 'Lodash',
     id: 'Lodash',
-    desciption: 'Библиотека для функционального программирования',
+    description: 'Библиотека для функционального программирования',
     tags: ['FP'],
     logo: null,
   },
   Ramda: {
     title: 'Ramda',
     id: 'Ramda',
-    desciption: 'Библиотека для функционального программирования',
+    description: 'Библиотека для функционального программирования',
     tags: ['FP'],
     logo: null,
   },
   Rxjs: {
     title: 'Rxjs',
     id: 'Rxjs',
-    desciption: 'Библиотека для рективного программирования',
+    description: 'Библиотека для рективного программирования',
     tags: ['Reactive'],
     logo: null,
   },
   Effector: {
     title: 'Effector',
     id: 'Effector',
-    desciption:
+    description:
       'Стейт менеджер для упрощенной работы с бизнес логикой, основанный на событиях',
     tags: ['Reactive', 'StateManager', 'Frontend'],
     logo: null,
@@ -351,21 +351,21 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Gitlab: {
     title: 'Gitlab',
     id: 'Gitlab',
-    desciption: 'Сервис для работы с репозиториями git с возможностью CI',
+    description: 'Сервис для работы с репозиториями git с возможностью CI',
     tags: ['Devops'],
     logo: null,
   },
   RabbitMQ: {
     title: 'RabbitMQ',
     id: 'RabbitMQ',
-    desciption: 'Брокер сообщений',
+    description: 'Брокер сообщений',
     tags: ['Devops', 'Backend'],
     logo: null,
   },
   'PG Admin': {
     title: 'PG Admin',
     id: 'PG Admin',
-    desciption: 'Интерфейс для управления базой данных Postgresql',
+    description: 'Интерфейс для управления базой данных Postgresql',
     tags: ['Database', 'Backend'],
     logo: null,
   },
@@ -373,28 +373,28 @@ export const TECHNOLOGIES: Record<string, ITechnologyItem> = {
   Jest: {
     title: 'Jest',
     id: 'Jest',
-    desciption: 'Библиотека для unit тестирования',
+    description: 'Библиотека для unit тестирования',
     tags: ['Testing'],
     logo: null,
   },
   'Testing library': {
     title: 'Testing library',
     id: 'Testing library',
-    desciption: 'Библиотека для unit тестирования React-компонентов',
+    description: 'Библиотека для unit тестирования React-компонентов',
     tags: ['Testing', 'Frontend'],
     logo: null,
   },
   Playwright: {
     title: 'Playwright',
     id: 'Playwright',
-    desciption: 'Система для end-to-end тестирования',
+    description: 'Система для end-to-end тестирования',
     tags: ['Testing', 'Frontend', 'Backend'],
     logo: null,
   },
   'UML diagrams': {
     title: 'UML diagrams',
     id: 'UML diagrams',
-    desciption:
+    description:
       'Используется для графического описания сущностей, запросов, процессов, интерфейсов и т.д.',
     tags: [],
     logo: null,

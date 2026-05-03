@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
 import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/section-wrapper.component';
 
@@ -8,6 +8,7 @@ import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/sec
   imports: [SectionWrapperComponent, MarginsDirective],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutMeComponent {
   public title = 'О себе';

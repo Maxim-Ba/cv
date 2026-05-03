@@ -12,7 +12,6 @@ import { AboutMeComponent } from './sections/about-me/about-me.component';
 import { MainInfoComponent } from './sections/main-info/main-info.component';
 import { TechnologiesComponent } from './sections/technologies/technologies.component';
 import { WorkHistoryComponent } from './sections/work-history/work-history.component';
-import { HttpClientModule } from '@angular/common/http';
 import { DOCUMENT, NgComponentOutlet } from '@angular/common';
 import { TechnologyDrawerComponent } from './widgets/technology-drawer/technology-drawer.component';
 import { EducationComponent } from './sections/education/education.component';
@@ -31,7 +30,6 @@ interface ISectionMap {
   standalone: true,
   imports: [
     RouterOutlet,
-    HttpClientModule,
     HeaderComponent,
     FooterComponent,
     AboutMeComponent,
@@ -46,7 +44,6 @@ interface ISectionMap {
     ScrollUpComponent,
     SnackBarComponent,
   ],
-  providers: [HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

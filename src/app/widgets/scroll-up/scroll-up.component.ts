@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 
@@ -10,13 +11,25 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './scroll-up.component.scss',
 })
 export class ScrollUpComponent {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    @Inject(DOCUMENT) private document: Document
+  ) { }
+
   scrollToTop() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    const win = this.document.defaultView;
+    if (!win) {
+      return;
+    }
     (function smoothscroll() {
       const currentScroll =
-        document.documentElement.scrollTop || document.body.scrollTop;
+        win.document.documentElement.scrollTop || win.document.body.scrollTop;
       if (currentScroll > 0) {
-        window.requestAnimationFrame(smoothscroll);
-        window.scrollTo(0, currentScroll - currentScroll / 8);
+        win.requestAnimationFrame(smoothscroll);
+        win.scrollTo(0, currentScroll - currentScroll / 8);
       }
     })();
   }

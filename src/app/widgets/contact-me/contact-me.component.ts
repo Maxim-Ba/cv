@@ -1,13 +1,10 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   inject,
-  OnInit,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { FeedbackComponent } from './forms/feedback/feedback.component';
 import {
   MatDialog,
   MatDialogActions,
@@ -32,7 +29,7 @@ import { FormTextareaItemComponent } from '../../shared/ui-kit/form-textarea-ite
   selector: 'app-contact-me',
   standalone: true,
   imports: [
-    FeedbackComponent,
+    MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
     MatButtonModule,
@@ -43,6 +40,7 @@ import { FormTextareaItemComponent } from '../../shared/ui-kit/form-textarea-ite
   ],
   templateUrl: './contact-me.component.html',
   styleUrl: './contact-me.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactMeComponent {
   public title = 'Связаться со мной';
@@ -95,18 +93,14 @@ export class ContactMeComponent {
     return '';
   }
   openDialog() {
-    const dialogRef = this.dialog.open(this.modal, { data: 'dialog data' });
-
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed.');
-      console.log(result);
-    });
+    this.dialogRef = this.dialog.open(this.modal, { data: 'dialog data' });
   }
   closeDialog() {
     this.dialogRef?.close();
   }
   send() {
-    // this.closeDialog();
-    console.log(this.feedbackForm.controls);
+    if (this.feedbackForm.valid) {
+      this.closeDialog();
+    }
   }
 }

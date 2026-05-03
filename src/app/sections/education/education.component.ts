@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
 import { EDUCATION } from '../../shared/constants/education';
 import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/section-wrapper.component';
@@ -9,6 +9,7 @@ import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/sec
   imports: [SectionWrapperComponent, MarginsDirective],
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent {
   public title = 'Образование';

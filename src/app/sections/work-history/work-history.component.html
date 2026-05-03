@@ -7,11 +7,7 @@
   <p class="technologies-title">Что использовал в работе:</p>
   <div class="chips-flow">
     @for (technology of work.technologies ; track technology.id) {
-    <app-technology-item
-      [desciption]="technology.desciption"
-      [tagIDs]="technology.tags"
-      [title]="technology.title"
-    >
+    <app-technology-item [description]="technology.description" [tagIDs]="technology.tags" [title]="technology.title">
     </app-technology-item>
     }
   </div>

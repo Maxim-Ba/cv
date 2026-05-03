@@ -1,9 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NotifyMaximService {
-  constructor(private httpClient: HttpClient) {}
-}
+export class NotifyMaximService { }

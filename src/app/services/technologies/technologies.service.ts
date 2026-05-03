@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { TAGS } from '../../shared/constants/tags';
 
@@ -8,7 +7,6 @@ type TTagID = string;
   providedIn: 'root',
 })
 export class TechnologiesService {
-  constructor(private httpClient: HttpClient) {}
   title: string = '';
   description: string = '';
   tagsIDs: string[] = [];
