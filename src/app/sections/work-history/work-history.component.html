@@ -1,5 +1,9 @@
-@if (works$ | async ; as works){
-@for (work of works ; track work.id) {
+@if (isLoading()) {
+<p class="loading-state">Загрузка...</p>
+} @else if (hasError()) {
+<p class="error-state">Не удалось загрузить места работы.</p>
+} @else {
+@for (work of works(); track work.id) {
 <div class="work-item">
   <p class="organization-name">
     {{work.name}}

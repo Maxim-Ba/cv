@@ -2,10 +2,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   Inject,
+  OnInit,
   Renderer2,
   Type,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 import { HeaderComponent } from './widgets/header/header.component';
 import { FooterComponent } from './widgets/footer/footer.component';
 import { AboutMeComponent } from './sections/about-me/about-me.component';
@@ -48,11 +50,27 @@ interface ISectionMap {
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2
-  ) {}
+    private renderer: Renderer2,
+    private meta: Meta,
+    private titleService: Title
+  ) { }
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Балашов Максим — Full-Stack разработчик');
+    this.meta.addTags([
+      { name: 'description', content: 'Портфолио Full-Stack разработчика Балашова Максима: Go, Angular, PostgreSQL, Docker, SSR.' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'Балашов Максим — Full-Stack разработчик' },
+      { property: 'og:description', content: 'Опыт разработки: Go REST API, Angular 17 SSR, PostgreSQL, Docker, CI/CD.' },
+      { property: 'og:url', content: 'https://cv.maxim-balashov.ru/' },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: 'Балашов Максим — Full-Stack разработчик' },
+      { name: 'twitter:description', content: 'Опыт разработки: Go REST API, Angular 17 SSR, PostgreSQL, Docker, CI/CD.' },
+    ]);
+  }
   title = 'Балашов Максим Frontend';
   sectionsMap: ISectionMap[] = [
     {

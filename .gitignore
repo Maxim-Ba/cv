@@ -45,3 +45,4 @@ testem.log
 Thumbs.db
 *.docx
 /test-wrapper
+cv.code-workspace

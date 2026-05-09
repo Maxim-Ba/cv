@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { WorkHistoryService } from '../../services/work-history/work-history.service';
-import { Observable } from 'rxjs';
-import { AsyncPipe, SlicePipe } from '@angular/common';
 import { WorkHistoryWithTechnologiesDto } from '../../api/models/dto/work-history-with-technologies-dto';
 import { TechnologyItemComponent } from '../../widgets/technology-item/technology-item.component';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
@@ -11,8 +9,6 @@ import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/sec
   selector: 'app-work-history',
   standalone: true,
   imports: [
-    AsyncPipe,
-    SlicePipe,
     SectionWrapperComponent,
     TechnologyItemComponent,
     MarginsDirective,
@@ -22,11 +18,23 @@ import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/sec
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkHistoryComponent implements OnInit {
-  constructor(private workHistoryService: WorkHistoryService) { }
+  private workHistoryService = inject(WorkHistoryService);
 
-  public works$?: Observable<WorkHistoryWithTechnologiesDto[]>;
   public title = 'Места работы';
+  public works = signal<WorkHistoryWithTechnologiesDto[]>([]);
+  public isLoading = signal(true);
+  public hasError = signal(false);
+
   ngOnInit(): void {
-    this.works$ = this.workHistoryService.getWorkHistory();
+    this.workHistoryService.getWorkHistory().subscribe({
+      next: (data) => {
+        this.works.set(data);
+        this.isLoading.set(false);
+      },
+      error: () => {
+        this.hasError.set(true);
+        this.isLoading.set(false);
+      },
+    });
   }
 }

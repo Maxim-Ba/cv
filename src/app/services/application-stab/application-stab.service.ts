@@ -10,4 +10,8 @@ export class ApplicationStabService {
   emitInProcessMessage() {
     this.stream.next({ message: 'Функционал в разработке' });
   }
+
+  notify(message: string) {
+    this.stream.next({ message });
+  }
 }

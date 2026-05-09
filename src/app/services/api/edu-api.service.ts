@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, EMPTY } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { ApiConfiguration } from '../../api/api-configuration';
 import { eduGet } from '../../api/fn/education/edu-get';
 import { EducationDto } from '../../api/models/dto/education-dto';
@@ -15,7 +15,8 @@ export class EduApiService {
 
   getEducation(): Observable<EducationDto[]> {
     return eduGet(this.http, this.config.rootUrl).pipe(
-      map((r) => r.body.content ?? [])
+      map((r) => r.body?.content ?? []),
+      catchError(() => EMPTY)
     );
   }
 }

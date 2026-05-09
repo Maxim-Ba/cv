@@ -8,12 +8,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideApiConfiguration } from './api/api-configuration';
 import { environment } from '../environments/environment';
 import { ssrBaseUrlInterceptor } from './interceptors/ssr-base-url.interceptor';
+import { httpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideClientHydration(),
-    provideHttpClient(withFetch(), withInterceptors([ssrBaseUrlInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([ssrBaseUrlInterceptor, httpErrorInterceptor])),
     provideAnimationsAsync(),
     provideApiConfiguration(`${environment.apiUrl}/api`),
   ],
