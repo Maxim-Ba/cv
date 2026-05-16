@@ -51,11 +51,11 @@
       [mat-dialog-close]="data"
     >Закрыть</button>
     <button
-      (click)="stabService.emitInProcessMessage()"
       color="primary"
       type="submit"
       form="feedback"
       mat-flat-button
-    >Отправить</button>
+      [disabled]="isSending()"
+    >{{ isSending() ? 'Отправка...' : 'Отправить' }}</button>
   </mat-dialog-actions>
 </ng-template>
