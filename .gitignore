@@ -46,3 +46,4 @@ Thumbs.db
 *.docx
 /test-wrapper
 cv.code-workspace
+secret_jenkins.txt

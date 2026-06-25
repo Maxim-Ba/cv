@@ -1,0 +1,13 @@
+# Используйте этот файл ВМЕСТО postgres-svc.yaml,
+# если PostgreSQL запущен на сервере вне кластера.
+# Замените <IP-СЕРВЕРА> на реальный IP.
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: cv-portfolio
+spec:
+  type: ExternalName
+  externalName: localhost
+  ports:
+    - port: 5432

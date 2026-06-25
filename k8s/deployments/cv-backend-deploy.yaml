@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-backend
+  namespace: cv-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv-backend
+  template:
+    metadata:
+      labels:
+        app: cv-backend
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: cv-backend
+          image: 3224142123/cv-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3333
+          envFrom:
+            - secretRef:
+                name: cv-backend-secret
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3333
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3333
+            initialDelaySeconds: 5
+            periodSeconds: 10

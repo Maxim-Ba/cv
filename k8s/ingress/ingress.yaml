@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cv-ingress
+  namespace: cv-portfolio
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /api/contact
+            pathType: Prefix
+            backend:
+              service:
+                name: cv-contact-me
+                port:
+                  number: 8090
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: cv-backend
+                port:
+                  number: 3333
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cv-frontend
+                port:
+                  number: 4000

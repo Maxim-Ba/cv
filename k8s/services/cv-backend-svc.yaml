@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cv-backend
+  namespace: cv-portfolio
+spec:
+  selector:
+    app: cv-backend
+  ports:
+    - port: 3333
+      targetPort: 3333
+  type: ClusterIP

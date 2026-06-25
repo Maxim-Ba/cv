@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-contact-me
+  namespace: cv-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv-contact-me
+  template:
+    metadata:
+      labels:
+        app: cv-contact-me
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+      containers:
+        - name: cv-contact-me
+          image: 3224142123/cv-contact-me:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8090
+          envFrom:
+            - secretRef:
+                name: cv-contact-me-secret
+          env:
+            - name: JAVA_OPTS
+              value: "-Xmx384m -Xms128m"
+          resources:
+            requests:
+              memory: "384Mi"
+              cpu: "100m"
+            limits:
+              memory: "768Mi"
+              cpu: "500m"
+          livenessProbe:
+            tcpSocket:
+              port: 8090
+            initialDelaySeconds: 60
+            periodSeconds: 30
+          readinessProbe:
+            tcpSocket:
+              port: 8090
+            initialDelaySeconds: 40
+            periodSeconds: 15
