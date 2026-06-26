@@ -7,21 +7,24 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { DeleteResponse as DtoDeleteResponse } from '../../models/dto/delete-response';
+import { AboutMeDto as DtoAboutMeDto } from '../../models/dto/about-me-dto';
 
-export interface EduDelete$Params {
+export interface AboutMePut$Params {
   
     /**
-     * Список ID для удаления
+     * Данные секции
      */
     body: {
 } & {
-'ids'?: Array<number>;
+'bioParagraphs'?: Array<string>;
+'hobbies'?: string;
+'note'?: string;
+'technologyIds'?: Array<number>;
 }
 }
 
-export function eduDelete(http: HttpClient, rootUrl: string, params: EduDelete$Params, context?: HttpContext): Observable<StrictHttpResponse<DtoDeleteResponse>> {
-  const rb = new RequestBuilder(rootUrl, eduDelete.PATH, 'delete');
+export function aboutMePut(http: HttpClient, rootUrl: string, params: AboutMePut$Params, context?: HttpContext): Observable<StrictHttpResponse<DtoAboutMeDto>> {
+  const rb = new RequestBuilder(rootUrl, aboutMePut.PATH, 'put');
   if (params) {
     rb.body(params.body, 'application/json');
   }
@@ -31,9 +34,9 @@ export function eduDelete(http: HttpClient, rootUrl: string, params: EduDelete$P
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<DtoDeleteResponse>;
+      return r as StrictHttpResponse<DtoAboutMeDto>;
     })
   );
 }
 
-eduDelete.PATH = '/edu';
+aboutMePut.PATH = '/about-me';

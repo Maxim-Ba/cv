@@ -4,7 +4,8 @@
 
 .cv-section--hero {
   max-width: var(--cv-section-max-width);
-  margin: 0 auto var(--cv-space-6);
+  margin-inline: auto;
+  margin-bottom: var(--cv-space-6);
 }
 
 .cv-section__content {

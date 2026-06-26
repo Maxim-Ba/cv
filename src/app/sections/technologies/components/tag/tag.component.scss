@@ -1,9 +1,9 @@
 :host {
-  display: block;
-  width: 100%;
+  display: inline-flex;
+  width: auto;
 
   .mat-mdc-chip {
-    width: 100%;
+    width: auto;
     border-radius: var(--cv-radius-pill);
     justify-content: center;
     transition: transform var(--cv-transition), box-shadow var(--cv-transition);

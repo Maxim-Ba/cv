@@ -9,6 +9,8 @@
 }
 
 .section-nav {
+  max-width: var(--cv-section-max-width);
+  margin-inline: auto;
   padding-top: var(--cv-space-2);
   padding-bottom: var(--cv-space-2);
 }

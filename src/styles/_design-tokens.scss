@@ -71,7 +71,8 @@
 
 .cv-section {
   max-width: var(--cv-section-max-width);
-  margin: 0 auto var(--cv-space-6);
+  margin-inline: auto;
+  margin-bottom: var(--cv-space-6);
 }
 
 .cv-section__title {
@@ -87,18 +88,19 @@
 }
 
 .with-margin {
-  margin: 0 100px;
+  box-sizing: border-box;
+  padding-inline: 100px;
 
   @media screen and (max-width: 1300px) {
-    margin: 0 50px;
+    padding-inline: 50px;
   }
 
   @media screen and (max-width: 900px) {
-    margin: 0 30px;
+    padding-inline: 30px;
   }
 
   @media screen and (max-width: 600px) {
-    margin: 0 16px;
+    padding-inline: 16px;
   }
 }
 

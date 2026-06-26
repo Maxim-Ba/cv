@@ -1,10 +1,10 @@
 :host {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--cv-space-2);
+  display: block;
   margin-bottom: var(--cv-space-5);
 }
 
-.mat-mdc-chip-set-stacked {
-  display: contents;
+.tag-filter__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cv-space-2);
 }

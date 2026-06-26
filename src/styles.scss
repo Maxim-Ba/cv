@@ -57,6 +57,10 @@ body {
   height: 100%;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   font-family: Inter, Roboto, 'Helvetica Neue', sans-serif;

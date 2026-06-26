@@ -1,30 +1,20 @@
 <div class="about-me">
   <div class="about-me__bio">
-    <p>
-      Занимаюсь программированием с 2015 года. Мой основной стек Typescript/JavaScript, React, Redux.
-    </p>
-    <p>
-      Продолжительное время занимался программированием станков, это направление мне очень нравилось, но из-за отсутствия
-      возможности дальнейшего развития в 2018 году сменил вектор с производства на IT.
-      Выбрал для себя на тот момент самый интересный для себя путь - Web разработка.
-    </p>
+    @for (paragraph of bioParagraphs(); track $index) {
+      <p>{{ paragraph }}</p>
+    }
   </div>
   <aside class="about-me__aside">
     <div class="about-me__badges">
-      <span class="about-me__badge">TypeScript</span>
-      <span class="about-me__badge">JavaScript</span>
-      <span class="about-me__badge">React</span>
-      <span class="about-me__badge">Redux</span>
-      <span class="about-me__badge">Python</span>
-      <span class="about-me__badge">Django</span>
-      <span class="about-me__badge">C++</span>
-      <span class="about-me__badge">Haskell</span>
+      @for (tech of technologies(); track tech.id) {
+        <span class="about-me__badge">{{ tech.title }}</span>
+      }
     </div>
-    <p class="about-me__note">
-      Люблю принципы Clean Architecture и функциональное программирование.
-    </p>
-    <p class="about-me__hobbies">
-      Мои хобби: спорт, игра на барабанах и электрогитаре.
-    </p>
+    @if (note()) {
+      <p class="about-me__note">{{ note() }}</p>
+    }
+    @if (hobbies()) {
+      <p class="about-me__hobbies">{{ hobbies() }}</p>
+    }
   </aside>
 </div>
