@@ -5,7 +5,6 @@ import { MarginsDirective } from '../../shared/directive/margins/margins.directi
 import { TagFilterComponent } from './components/tag-filter/tag-filter.component';
 import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/section-wrapper.component';
 import { TechApiService } from '../../services/api/tech-api.service';
-import { TechnologiesService } from '../../services/technologies/technologies.service';
 
 @Component({
   selector: 'app-technologies',
@@ -22,7 +21,6 @@ import { TechnologiesService } from '../../services/technologies/technologies.se
 })
 export class TechnologiesComponent implements OnInit {
   private techApiService = inject(TechApiService);
-  private techsService = inject(TechnologiesService);
 
   public title = 'Используемые технологии';
   technologies = signal<TechnologyWithTagsDto[]>([]);
@@ -31,13 +29,5 @@ export class TechnologiesComponent implements OnInit {
     this.techApiService.getTechnologies().subscribe((techs) => {
       this.technologies.set(techs);
     });
-  }
-
-  get filteredTechnologies(): TechnologyWithTagsDto[] {
-    const filter = this.techsService.tagFilter();
-    if (filter.length === 0) return this.technologies();
-    return this.technologies().filter((tech) =>
-      (tech.tags ?? []).some((tag) => filter.includes(tag.id ?? -1))
-    );
   }
 }
