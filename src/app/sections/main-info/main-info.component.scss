@@ -13,15 +13,16 @@
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--cv-primary), var(--cv-accent));
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--cv-font-h2);
-  font-weight: 700;
+  overflow: hidden;
   box-shadow: var(--cv-shadow-2);
   flex-shrink: 0;
+}
+
+.hero__avatar-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .hero__greeting {
