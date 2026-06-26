@@ -4,7 +4,9 @@ import {
   ElementRef,
   inject,
   OnDestroy,
+  PLATFORM_ID,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appCvReveal]',
@@ -12,11 +14,20 @@ import {
 })
 export class CvRevealDirective implements AfterViewInit, OnDestroy {
   private readonly el = inject(ElementRef<HTMLElement>);
+  private readonly platformId = inject(PLATFORM_ID);
   private observer?: IntersectionObserver;
 
   ngAfterViewInit(): void {
     const element = this.el.nativeElement;
     element.classList.add('cv-reveal');
+
+    if (
+      !isPlatformBrowser(this.platformId) ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
+      element.classList.add('cv-reveal--visible');
+      return;
+    }
 
     this.observer = new IntersectionObserver(
       ([entry]) => {

@@ -29,6 +29,7 @@
 
   --cv-transition: 200ms ease;
   --cv-section-max-width: 960px;
+  --cv-header-height: 64px;
 
   --cv-font-display: 2.5rem;
   --cv-font-h1: 2rem;
@@ -69,12 +70,6 @@
   }
 }
 
-.cv-section {
-  max-width: var(--cv-section-max-width);
-  margin-inline: auto;
-  margin-bottom: var(--cv-space-6);
-}
-
 .cv-section__title {
   font-size: var(--cv-font-h2);
   font-weight: 600;
@@ -89,6 +84,8 @@
 
 .with-margin {
   box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
   padding-inline: 100px;
 
   @media screen and (max-width: 1300px) {
@@ -101,6 +98,25 @@
 
   @media screen and (max-width: 600px) {
     padding-inline: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --cv-header-height: 56px;
+  }
+
+  app-header .header-content {
+    .header-content__gitlab,
+    .header-content__download,
+    .header-content__contact,
+    a[href^='mailto:'] {
+      display: none !important;
+    }
+
+    .toggler-wrapper {
+      margin-left: auto;
+    }
   }
 }
 

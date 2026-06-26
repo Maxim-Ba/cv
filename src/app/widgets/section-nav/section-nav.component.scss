@@ -1,7 +1,7 @@
 :host {
   display: block;
   position: sticky;
-  top: 64px;
+  top: var(--cv-header-height);
   z-index: 4;
   background: color-mix(in srgb, var(--cv-surface) 85%, transparent);
   backdrop-filter: blur(12px);
@@ -49,11 +49,5 @@
     color: #fff;
     background: var(--cv-primary);
     border-color: var(--cv-primary);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  :host {
-    top: 56px;
   }
 }

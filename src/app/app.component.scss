@@ -16,11 +16,16 @@
 
 .app-wrapper {
   width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   position: relative;
   background: var(--cv-surface);
+  padding-top: var(--cv-header-height);
 }
 
 .app-main {
+  width: 100%;
+  max-width: 100%;
   padding-top: var(--cv-space-4);
   padding-bottom: var(--cv-space-6);
 }

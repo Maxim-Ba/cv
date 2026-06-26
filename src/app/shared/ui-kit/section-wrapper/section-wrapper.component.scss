@@ -1,9 +1,14 @@
 :host {
   display: block;
+  width: 100%;
+  max-width: 100%;
 }
 
+.cv-section,
 .cv-section--hero {
-  max-width: var(--cv-section-max-width);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   margin-inline: auto;
   margin-bottom: var(--cv-space-6);
 }

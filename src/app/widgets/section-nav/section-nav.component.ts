@@ -6,9 +6,11 @@ import {
   inject,
   Input,
   OnInit,
+  PLATFORM_ID,
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
@@ -33,20 +35,39 @@ export class SectionNavComponent implements OnInit, AfterViewInit {
 
   private observer?: IntersectionObserver;
   private readonly destroyRef = inject(DestroyRef);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly document = inject(DOCUMENT);
 
   ngOnInit(): void {
-    fromEvent(window, 'scroll')
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const win = this.document.defaultView;
+    if (!win) {
+      return;
+    }
+
+    fromEvent(win, 'scroll')
       .pipe(debounceTime(50), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => this.updateActiveFromScroll());
   }
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.setupObserver();
     this.updateActiveFromScroll();
   }
 
   scrollTo(sectionId: string): void {
-    document.getElementById(sectionId)?.scrollIntoView({
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    this.document.getElementById(sectionId)?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
@@ -58,6 +79,10 @@ export class SectionNavComponent implements OnInit, AfterViewInit {
   }
 
   private setupObserver(): void {
+    if (typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
     this.observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -72,7 +97,7 @@ export class SectionNavComponent implements OnInit, AfterViewInit {
     );
 
     for (const item of this.items) {
-      const el = document.getElementById(item.id);
+      const el = this.document.getElementById(item.id);
       if (el) {
         this.observer.observe(el);
       }
@@ -82,8 +107,11 @@ export class SectionNavComponent implements OnInit, AfterViewInit {
   }
 
   private updateActiveFromScroll(): void {
-    if (window.scrollY < 80 && this.items.length) {
-      this.activeSection.set(this.items[0].id);
+    const win = this.document.defaultView;
+    if (!win || win.scrollY >= 80 || !this.items.length) {
+      return;
     }
+
+    this.activeSection.set(this.items[0].id);
   }
 }

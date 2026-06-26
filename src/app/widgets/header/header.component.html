@@ -1,6 +1,6 @@
 <app-navbar>
   <div appMargins class="header-content">
-    <app-gitlab-link></app-gitlab-link>
+    <app-gitlab-link class="header-content__gitlab"></app-gitlab-link>
     <a mat-icon-anchor matTooltip="Связаться со мной в Telegram" href={{links.telegram.href}} target="_blank">
       <img width="18px" src="../../../assets/icons/telegram.svg" alt={{links.telegram.label}}>
     </a>
@@ -11,8 +11,13 @@
     <a mat-anchor matTooltip="Напишите на мой Email" href="mailto:{{links.email.href}}"
       target="_blank">{{links.email.label}}</a>
 
-    <button mat-icon-button matTooltip="Скачать CV в PDF" [disabled]="downloadCvService.isDownloading()"
-      (click)="downloadCvService.downloadCV()">
+    <button
+      class="header-content__download"
+      mat-icon-button
+      matTooltip="Скачать CV в PDF"
+      [disabled]="downloadCvService.isDownloading()"
+      (click)="downloadCvService.downloadCV()"
+    >
       @if (downloadCvService.isDownloading()) {
       <mat-spinner diameter="18"></mat-spinner>
       } @else {
@@ -20,7 +25,7 @@
       }
     </button>
 
-    <app-contact-me></app-contact-me>
+    <app-contact-me class="header-content__contact"></app-contact-me>
     <div class="toggler-wrapper">
       <mat-icon aria-hidden="false" aria-label="download CV" fontIcon="light_mode"></mat-icon>
       <mat-slide-toggle class="example-margin" (change)="onDarkModeSwitch($event)" [checked]="checked"

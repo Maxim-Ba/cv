@@ -1,8 +1,11 @@
-:host{
-  position: sticky;
+:host {
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 5;
+  display: block;
+  width: 100%;
   .header-content{
     width: 100%;
     display: flex !important;
@@ -20,6 +23,7 @@
       gap: 2px;
       display: flex;
       align-items: center;
+      flex-shrink: 0;
       .mdc-label{
         align-self: center;
         align-items: center;
