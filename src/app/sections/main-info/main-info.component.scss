@@ -1,7 +1,121 @@
-:host{
-  margin: 16px;
-  &>p{
+:host {
+  display: block;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--cv-space-6);
+  align-items: center;
+}
+
+.hero__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cv-primary), var(--cv-accent));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--cv-font-h2);
+  font-weight: 700;
+  box-shadow: var(--cv-shadow-2);
+  flex-shrink: 0;
+}
+
+.hero__greeting {
+  margin: 0 0 var(--cv-space-2);
+  color: var(--cv-text-muted);
+  font-size: var(--cv-font-body);
+}
+
+.hero__name {
+  margin: 0;
+  font-size: var(--cv-font-display);
+  font-weight: 700;
+  line-height: var(--cv-line-height-tight);
+  color: var(--cv-text-primary);
+}
+
+.hero__role {
+  margin: var(--cv-space-2) 0 var(--cv-space-4);
+  font-size: var(--cv-font-h3);
+  font-weight: 500;
+  color: var(--cv-primary);
+}
+
+.hero__pitch {
+  margin: 0 0 var(--cv-space-5);
+  font-size: var(--cv-font-body);
+  line-height: var(--cv-line-height-body);
+  color: var(--cv-text-muted);
+  max-width: 52ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cv-space-3);
+  align-items: center;
+}
+
+.hero__action-btn {
+  ::ng-deep .mdc-button__label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--cv-space-2);
+    line-height: 1;
+  }
+}
+
+.hero__action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+
+  img {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  mat-icon {
     font-size: 18px;
-    margin: 5px 0;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+  }
+
+  mat-spinner {
+    display: inline-flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__avatar {
+    margin: 0 auto;
+  }
+
+  .hero__pitch {
+    max-width: none;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero__name {
+    font-size: var(--cv-font-h1);
   }
 }

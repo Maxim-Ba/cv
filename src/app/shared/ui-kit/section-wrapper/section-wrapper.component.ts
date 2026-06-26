@@ -1,20 +1,17 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  signal,
-} from '@angular/core';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { CvRevealDirective } from '../../directive/reveal/cv-reveal.directive';
+import { MarginsDirective } from '../../directive/margins/margins.directive';
 
 @Component({
   selector: 'app-section-wrapper',
   standalone: true,
-  imports: [MatExpansionModule],
+  imports: [CvRevealDirective, MarginsDirective],
   templateUrl: './section-wrapper.component.html',
   styleUrl: './section-wrapper.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectionWrapperComponent {
-  // readonly panelOpenState = signal(false);
-  @Input({ required: true }) sectionTitle!: string;
+  @Input({ required: true }) sectionId!: string;
+  @Input() sectionTitle = '';
+  @Input() isHero = false;
 }

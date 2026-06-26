@@ -1,0 +1,14 @@
+<nav appMargins class="section-nav" aria-label="Навигация по секциям">
+  <div class="section-nav__track">
+    @for (item of items; track item.id) {
+      <button
+        type="button"
+        class="section-nav__link"
+        [class.section-nav__link--active]="isActive(item.id)"
+        (click)="scrollTo(item.id)"
+      >
+        {{ item.label }}
+      </button>
+    }
+  </div>
+</nav>

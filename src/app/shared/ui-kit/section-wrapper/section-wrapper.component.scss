@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.cv-section--hero {
+  max-width: var(--cv-section-max-width);
+  margin: 0 auto var(--cv-space-6);
+}
+
+.cv-section__content {
+  &:empty {
+    display: none;
+  }
+}
+
+.cv-section--hero .cv-section__content {
+  background: var(--cv-hero-gradient);
+  border: 1px solid var(--cv-border);
+  border-radius: var(--cv-radius-lg);
+  padding: var(--cv-space-7) var(--cv-space-5);
+  box-shadow: var(--cv-shadow-2);
+}
+
+@media screen and (max-width: 600px) {
+  .cv-section--hero .cv-section__content {
+    padding: var(--cv-space-5) var(--cv-space-4);
+  }
+}

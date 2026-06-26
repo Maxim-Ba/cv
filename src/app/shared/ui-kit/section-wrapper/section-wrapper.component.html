@@ -1,10 +1,14 @@
-<!-- <mat-accordion>
-
-  <mat-expansion-panel hideToggle [expanded]="true"> -->
-<!-- <mat-expansion-panel-header>
-  <mat-panel-title> {{sectionTitle}} </mat-panel-title>
-
-</mat-expansion-panel-header> -->
-<ng-content></ng-content>
-<!-- </mat-expansion-panel>
-</mat-accordion> -->
+<section
+  [id]="sectionId"
+  appMargins
+  appCvReveal
+  [class.cv-section]="!isHero"
+  [class.cv-section--hero]="isHero"
+>
+  @if (sectionTitle) {
+    <h2 class="cv-section__title">{{ sectionTitle }}</h2>
+  }
+  <div [class.cv-card]="!isHero" [class.cv-section__content]="true">
+    <ng-content></ng-content>
+  </div>
+</section>

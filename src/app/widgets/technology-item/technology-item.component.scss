@@ -1,5 +1,19 @@
-.mat-transition {
+:host {
+  display: inline-flex;
+}
 
-  transition: transform 0.5s;
-  transform: translateX(1000px);
+.technology-chip {
+  cursor: pointer;
+  transition: opacity var(--cv-transition), filter var(--cv-transition),
+    transform var(--cv-transition), box-shadow var(--cv-transition);
+
+  &:hover:not(.technology-chip--dimmed) {
+    transform: translateY(-1px);
+    box-shadow: var(--cv-shadow-1);
+  }
+
+  &--dimmed {
+    opacity: 0.45;
+    filter: grayscale(1);
+  }
 }

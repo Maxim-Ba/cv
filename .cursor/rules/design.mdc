@@ -1,0 +1,13 @@
+---
+description: Design system rules for balashov-cv-client
+globs: src/**/*.scss, src/**/*.html
+---
+
+- Use tokens from src/styles/_design-tokens.scss only (--cv-* variables)
+- Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64
+- Section max-width: 960px centered
+- Prefer mat-card / custom .cv-card over raw paragraphs
+- Animations: CSS only, prefers-reduced-motion respected
+- Reuse existing widgets (header, technology-item, tag-filter)
+- Do not add Tailwind CSS
+- Do not break API integrations or TechnologiesService / drawer / contact-me logic

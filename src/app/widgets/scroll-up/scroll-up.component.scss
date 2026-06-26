@@ -6,13 +6,23 @@
     opacity: 1;
   }
 }
-:host{
+
+:host {
   position: fixed;
-  bottom: 50px;
-  right: 10px;
+  bottom: 80px;
+  right: var(--cv-space-4);
   z-index: 1000;
-  animation: opacityProgress auto ;
+  animation: opacityProgress auto;
   animation-timeline: scroll(root);
 
+  button {
+    box-shadow: var(--cv-shadow-2);
+  }
+}
 
+@media screen and (max-width: 600px) {
+  :host {
+    bottom: 72px;
+    right: var(--cv-space-3);
+  }
 }

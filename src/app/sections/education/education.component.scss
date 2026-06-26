@@ -1,21 +1,46 @@
-.edu-item{
-  margin-bottom: 16px;
-  p{
-    margin: 0;
-  }
+:host {
+  display: block;
 }
-.title{
+
+.education-list {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  &>:first-child{
-    font-size: 18px;
-    font-weight: 500;
-  }
-  &>:last-child{
-font-size: 16px;
+  flex-direction: column;
+  gap: var(--cv-space-4);
+}
+
+.education-card {
+  padding: var(--cv-space-4);
+  border: 1px solid var(--cv-border);
+  border-radius: var(--cv-radius-sm);
+  background: var(--cv-surface);
+  transition: box-shadow var(--cv-transition), border-color var(--cv-transition);
+
+  &:hover {
+    box-shadow: var(--cv-shadow-1);
+    border-color: color-mix(in srgb, var(--cv-primary) 30%, transparent);
   }
 }
-.organization{
-  font-size: 14px;
+
+.education-card__year {
+  display: inline-block;
+  font-size: var(--cv-font-caption);
+  font-weight: 600;
+  color: var(--cv-primary);
+  background: color-mix(in srgb, var(--cv-primary) 12%, transparent);
+  border-radius: var(--cv-radius-pill);
+  padding: var(--cv-space-1) var(--cv-space-3);
+  margin-bottom: var(--cv-space-2);
+}
+
+.education-card__course {
+  margin: 0 0 var(--cv-space-2);
+  font-size: var(--cv-font-h3);
+  font-weight: 600;
+  color: var(--cv-text-primary);
+}
+
+.education-card__org {
+  margin: 0;
+  font-size: var(--cv-font-body);
+  color: var(--cv-text-muted);
 }

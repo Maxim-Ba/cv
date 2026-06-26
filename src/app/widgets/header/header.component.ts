@@ -13,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ApplicationStabService } from '../../services/application-stab/application-stab.service';
 import { DownloadCvService } from '../../services/download-cv/download-cv.service';
 import { NavbarComponent } from '../../shared/ui-kit/navbar/navbar.component';
+import { CONTACT_LINKS } from '../../shared/constants/contact-links';
 
 @Component({
   selector: 'app-header',
@@ -38,13 +39,7 @@ export class HeaderComponent {
   public stabService = inject(ApplicationStabService);
   public downloadCvService = inject(DownloadCvService);
 
-  public links = {
-    telegram: { href: 'https://t.me/BalashovMaximm', label: 'T' },
-    whatsapp: { href: 'https://wa.me/89164211428', label: 'W' },
-    // email: { href: 'info@maxim-ba.ru', label: 'info@maxim-ba.ru' },
-    email: { href: '79164211428@yandex.ru', label: '79164211428@yandex.ru' },
-    downloadCV: { href: 'https://api.maxim-ba.ru/download-cv', label: 'img' },
-  } as const;
+  public links = CONTACT_LINKS;
   checked = false;
   disabled = false;
   onDarkModeSwitch(change: MatSlideToggleChange) {

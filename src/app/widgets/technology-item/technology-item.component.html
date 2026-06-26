@@ -1,7 +1,6 @@
-<mat-chip (click)="openDialog()" [style]="isOpacity() ? {opacity:.5}:{}">
-  @if(logo){
-
-  <img matChipAvatar src={{logo}} alt={{title}} />
+<mat-chip (click)="openDialog()" [class.technology-chip--dimmed]="isOpacity()" class="technology-chip cv-chip">
+  @if (logo) {
+  <img matChipAvatar [src]="logo" [alt]="title" />
   }
-  {{title}}
+  {{ title }}
 </mat-chip>

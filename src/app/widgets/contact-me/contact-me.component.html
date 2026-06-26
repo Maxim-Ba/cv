@@ -1,22 +1,27 @@
+@if (variant === 'hero') {
+<button
+  mat-stroked-button
+  class="contact-me-btn contact-me-btn--hero hero__action-btn"
+  (click)="openDialog()"
+>
+  <span class="hero__action-icon" aria-hidden="true">
+    <mat-icon fontIcon="mail"></mat-icon>
+  </span>
+  Написать мне
+</button>
+} @else {
 <button
   mat-flat-button
+  class="contact-me-btn"
   (click)="openDialog()"
->Написать мне</button>
-<ng-template
-  let-data
-  #modal
 >
-  <h2
-    mat-dialog-title
-    class="title"
-  >Написать мне</h2>
+  Написать мне
+</button>
+}
+<ng-template let-data #modal>
+  <h2 mat-dialog-title class="title">Написать мне</h2>
   <mat-dialog-content>
-    <form
-      class="form"
-      [formGroup]="feedbackForm"
-      (ngSubmit)="send()"
-      id="feedback"
-    >
+    <form class="form" [formGroup]="feedbackForm" (ngSubmit)="send()" id="feedback">
       <app-form-field-item
         [hint]="emailHint"
         placeholder="Введите email"
@@ -44,18 +49,11 @@
     </form>
   </mat-dialog-content>
   <mat-dialog-actions align="center">
-    <button
-      type="button"
-      (click)="closeDialog()"
-      mat-raised-button
-      [mat-dialog-close]="data"
-    >Закрыть</button>
-    <button
-      color="primary"
-      type="submit"
-      form="feedback"
-      mat-flat-button
-      [disabled]="isSending()"
-    >{{ isSending() ? 'Отправка...' : 'Отправить' }}</button>
+    <button type="button" (click)="closeDialog()" mat-raised-button [mat-dialog-close]="data">
+      Закрыть
+    </button>
+    <button color="primary" type="submit" form="feedback" mat-flat-button [disabled]="isSending()">
+      {{ isSending() ? 'Отправка...' : 'Отправить' }}
+    </button>
   </mat-dialog-actions>
 </ng-template>

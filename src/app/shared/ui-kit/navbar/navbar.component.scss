@@ -2,12 +2,18 @@
 @use '@angular/material' as mat;
 
 @mixin color-toolbar($theme, $palete) {
-  $background-color: mat.get-theme-color($theme, primary, 400);
+  $primary-color: mat.get-theme-color($theme, primary, 600);
   $color: map.get($palete, text);
 
-    .mat-toolbar{
-      background-color: $background-color !important;
-      color: $color !important;
+  .mat-toolbar {
+    background: color-mix(in srgb, var(--cv-surface-elevated) 80%, transparent) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cv-border);
+    color: $color !important;
+    box-shadow: var(--cv-shadow-1);
+  }
 
+  .mat-toolbar.mat-primary {
+    background: color-mix(in srgb, var(--cv-surface-elevated) 80%, transparent) !important;
   }
 }

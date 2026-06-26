@@ -5,24 +5,23 @@
   min-width: 500px;
   max-width: 50%;
   transform: translateX(100%);
-  border-radius: 8px;
-  transition: transform .3s;
-  position: absolute;
-  z-index: 100;
-  top:50%;
-  right: 0;
+  border-radius: var(--cv-radius-md);
+  transition: transform 0.3s;
   position: fixed;
-  padding: 10px;
-
-
+  z-index: 100;
+  top: 50%;
+  right: 0;
+  padding: var(--cv-space-4);
+  box-shadow: var(--cv-shadow-3);
+  border: 1px solid var(--cv-border);
 }
 .transition-on{
   transform: translateX(-10px)
 }
 .backdrop{
   display: none;
-  background-color: black;
-  opacity: .0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   height: 100vh;
   width: 100vw;
   z-index: 50;

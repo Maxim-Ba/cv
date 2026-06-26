@@ -1,31 +1,17 @@
 <app-scroll-up></app-scroll-up>
 <app-header (isModeSwitched)="switchMode($event)"></app-header>
 <div class="flex flex-col h-screen mat-app-background app-wrapper">
-  <main class="grow">
-    <mat-accordion
-      [displayMode]="'flat'"
-      multi
-    >
-      @for(sectionItem of sectionsMap; track $index){
-      <mat-expansion-panel
-        hideToggle
-        expanded
-        [disabled]="$index===0"
+  <app-section-nav [items]="navItems"></app-section-nav>
+  <main class="grow app-main">
+    @for (sectionItem of sectionsMap; track sectionItem.sectionId) {
+      <app-section-wrapper
+        [sectionId]="sectionItem.sectionId"
+        [sectionTitle]="sectionItem.titleSection"
+        [isHero]="sectionItem.isHero ?? false"
       >
-        @if(sectionItem.titleSection){
-        <mat-expansion-panel-header>
-          <mat-panel-title
-            appMargins
-            class="panel-title"
-          > {{sectionItem.titleSection}} </mat-panel-title>
-        </mat-expansion-panel-header>
-        }
-        <div appMargins>
-          <ng-container *ngComponentOutlet="createComponent($index)"></ng-container>
-        </div>
-      </mat-expansion-panel>
-      }
-    </mat-accordion>
+        <ng-container *ngComponentOutlet="sectionItem.Component"></ng-container>
+      </app-section-wrapper>
+    }
   </main>
   <app-footer></app-footer>
   <app-technology-drawer></app-technology-drawer>

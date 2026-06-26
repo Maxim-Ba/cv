@@ -1,16 +1,45 @@
-:host{
-  button {
-    margin: 0 20px;
+:host {
+  display: inline-flex;
+
+  .contact-me-btn {
+    margin: 0;
+
+    &--hero {
+      ::ng-deep .mdc-button__label {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--cv-space-2);
+        line-height: 1;
+      }
+    }
   }
 }
-.form{
+
+.hero__action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+  }
+}
+
+.form {
   min-width: 320px;
   display: flex;
-  gap: 4px;
+  gap: var(--cv-space-2);
   flex-direction: column;
 }
-.title{
-  margin-top: 20px;
+
+.title {
+  margin-top: var(--cv-space-5);
   text-align: center;
-  color: var(--mat-expansion-container-text-color);
+  color: var(--cv-text-primary);
 }

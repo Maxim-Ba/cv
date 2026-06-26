@@ -16,7 +16,7 @@ export class ScrollUpComponent {
     @Inject(DOCUMENT) private document: Document
   ) { }
 
-  scrollToTop() {
+  scrollToTop(): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
@@ -24,13 +24,23 @@ export class ScrollUpComponent {
     if (!win) {
       return;
     }
-    (function smoothscroll() {
-      const currentScroll =
-        win.document.documentElement.scrollTop || win.document.body.scrollTop;
-      if (currentScroll > 0) {
-        win.requestAnimationFrame(smoothscroll);
-        win.scrollTo(0, currentScroll - currentScroll / 8);
+
+    const behavior = win.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'auto'
+      : 'smooth';
+
+    win.scrollTo({ top: 0, left: 0, behavior });
+
+    const snapToTop = (): void => {
+      if (win.scrollY > 0) {
+        win.scrollTo(0, 0);
       }
-    })();
+    };
+
+    if ('onscrollend' in win) {
+      win.addEventListener('scrollend', snapToTop, { once: true });
+    } else {
+      window.setTimeout(snapToTop, behavior === 'smooth' ? 500 : 0);
+    }
   }
 }

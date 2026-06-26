@@ -3,25 +3,40 @@
 } @else if (hasError()) {
 <p class="error-state">Не удалось загрузить места работы.</p>
 } @else {
-@for (work of works(); track work.id) {
-<div class="work-item">
-  <p class="organization-name">
-    {{work.name}}
-  </p>
-  <p class="technologies-title">Что использовал в работе:</p>
-  <div class="chips-flow">
-    @for (technology of (work.technologies ?? []) ; track technology.id) {
-    <app-technology-item [description]="technology.description ?? null" [tags]="technology.tags ?? []"
-      [title]="technology.title ?? ''">
-    </app-technology-item>
-    }
-  </div>
-  <p class="what-i-did">Что я делал:</p>
-  @for (whatIDoItem of (work.whatIDid ?? []) ; track whatIDoItem) {
-  <p>
-    {{whatIDoItem}}
-  </p>
+<div class="timeline">
+  @for (work of works(); track work.id) {
+  <article class="timeline__item">
+    <div class="timeline__marker" aria-hidden="true"></div>
+    <div class="timeline__card">
+      <header class="timeline__header">
+        <h3 class="timeline__org">{{ work.name }}</h3>
+        @if (work.periodStart || work.periodEnd) {
+        <span class="timeline__period">
+          {{ work.periodStart ?? '?' }} — {{ work.periodEnd ?? 'н.в.' }}
+        </span>
+        }
+      </header>
+      <p class="timeline__label">Что использовал в работе:</p>
+      <div class="chips-flow">
+        @for (technology of (work.technologies ?? []); track technology.id) {
+        <app-technology-item
+          [description]="technology.description ?? null"
+          [tags]="technology.tags ?? []"
+          [title]="technology.title ?? ''"
+          [logo]="technology.logoUrl ?? null"
+        ></app-technology-item>
+        }
+      </div>
+      @if ((work.whatIDid ?? []).length) {
+      <p class="timeline__label">Что я делал:</p>
+      <ul class="timeline__tasks">
+        @for (whatIDoItem of (work.whatIDid ?? []); track whatIDoItem) {
+        <li>{{ whatIDoItem }}</li>
+        }
+      </ul>
+      }
+    </div>
+  </article>
   }
 </div>
-}
 }

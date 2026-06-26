@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  Input,
   inject,
   signal,
   TemplateRef,
@@ -15,6 +16,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import {
   FormControl,
   FormGroup,
@@ -39,12 +41,14 @@ import { FormTextareaItemComponent } from '../../shared/ui-kit/form-textarea-ite
     ReactiveFormsModule,
     FormFieldItemComponent,
     FormTextareaItemComponent,
+    MatIconModule,
   ],
   templateUrl: './contact-me.component.html',
   styleUrl: './contact-me.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactMeComponent {
+  @Input() variant: 'toolbar' | 'hero' = 'toolbar';
   public title = 'Связаться со мной';
   private dialogRef?: MatDialogRef<any> = undefined;
   readonly dialog = inject(MatDialog);

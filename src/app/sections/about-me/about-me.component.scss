@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.about-me {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--cv-space-6);
+}
+
+.about-me__bio {
+  p {
+    margin: 0 0 var(--cv-space-4);
+    line-height: var(--cv-line-height-body);
+    color: var(--cv-text-primary);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.about-me__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cv-space-2);
+  margin-bottom: var(--cv-space-4);
+}
+
+.about-me__badge {
+  font-size: var(--cv-font-caption);
+  font-weight: 500;
+  color: var(--cv-primary);
+  background: color-mix(in srgb, var(--cv-primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cv-primary) 25%, transparent);
+  border-radius: var(--cv-radius-pill);
+  padding: var(--cv-space-1) var(--cv-space-3);
+}
+
+.about-me__note,
+.about-me__hobbies {
+  margin: 0 0 var(--cv-space-3);
+  font-size: var(--cv-font-body);
+  line-height: var(--cv-line-height-body);
+  color: var(--cv-text-muted);
+}
+
+.about-me__hobbies {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me {
+    grid-template-columns: 1fr;
+  }
+}
