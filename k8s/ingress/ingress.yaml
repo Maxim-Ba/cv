@@ -24,6 +24,13 @@ spec:
                 name: cv-backend
                 port:
                   number: 3333
+          - path: /admin
+            pathType: Prefix
+            backend:
+              service:
+                name: cv-backend
+                port:
+                  number: 3333
           - path: /
             pathType: Prefix
             backend:
