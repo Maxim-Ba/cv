@@ -4,19 +4,24 @@ metadata:
   name: cv-ingress
   namespace: cv-portfolio
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls.certresolver: le
 spec:
+  tls:
+    - hosts:
+        - balashov-maxim.ru
+      secretName: balashov-maxim-tls
   rules:
-    - host: localhost
+    - host: cv.balashov-maxim.ru
       http:
         paths:
-          - path: /api/contact
-            pathType: Prefix
-            backend:
-              service:
-                name: cv-contact-me
-                port:
-                  number: 8090
+          # - path: /api/contact
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: cv-contact-me
+          #       port:
+          #         number: 8090
           - path: /api
             pathType: Prefix
             backend:
