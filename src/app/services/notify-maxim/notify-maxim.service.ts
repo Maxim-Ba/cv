@@ -26,7 +26,7 @@ export class NotifyMaximService {
 
   send(data: ContactPayload): Observable<{ ok: boolean }> {
     return this.http
-      .post<{ ok: boolean }>(`${this.config.rootUrl}/api/contact`, data)
+      .post<{ ok: boolean }>(`${this.config.rootUrl}/contact`, data)
       .pipe(
         retry(1),
         catchError((err) => throwError(() => err)),
