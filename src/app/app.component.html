@@ -1,6 +1,6 @@
 <app-scroll-up></app-scroll-up>
 <div class="flex flex-col h-screen mat-app-background app-wrapper">
-  <app-header (isModeSwitched)="switchMode($event)"></app-header>
+  <app-header></app-header>
   <app-section-nav [items]="navItems"></app-section-nav>
   <main class="grow app-main">
     @for (sectionItem of sectionsMap; track sectionItem.sectionId) {

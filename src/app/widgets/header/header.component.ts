@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
 import {
   MatSlideToggleChange,
@@ -14,6 +14,7 @@ import { ApplicationStabService } from '../../services/application-stab/applicat
 import { DownloadCvService } from '../../services/download-cv/download-cv.service';
 import { NavbarComponent } from '../../shared/ui-kit/navbar/navbar.component';
 import { CONTACT_LINKS } from '../../shared/constants/contact-links';
+import { ThemeService } from '../../services/theme/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -34,15 +35,14 @@ import { CONTACT_LINKS } from '../../shared/constants/contact-links';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  @Output()
-  readonly isModeSwitched = new EventEmitter<boolean>();
   public stabService = inject(ApplicationStabService);
   public downloadCvService = inject(DownloadCvService);
+  public themeService = inject(ThemeService);
 
   public links = CONTACT_LINKS;
-  checked = false;
   disabled = false;
-  onDarkModeSwitch(change: MatSlideToggleChange) {
-    this.isModeSwitched.emit(change.checked);
+
+  onDarkModeSwitch(change: MatSlideToggleChange): void {
+    this.themeService.setDarkMode(change.checked);
   }
 }

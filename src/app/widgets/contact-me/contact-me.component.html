@@ -1,22 +1,24 @@
-@if (variant === 'hero') {
-<button
-  mat-stroked-button
-  class="contact-me-btn contact-me-btn--hero hero__action-btn"
-  (click)="openDialog()"
->
-  <span class="hero__action-icon" aria-hidden="true">
-    <mat-icon fontIcon="mail"></mat-icon>
-  </span>
-  Написать мне
-</button>
-} @else {
-<button
-  mat-flat-button
-  class="contact-me-btn"
-  (click)="openDialog()"
->
-  Написать мне
-</button>
+@if (notifyService.isAvailable()) {
+  @if (variant === 'hero') {
+  <button
+    mat-stroked-button
+    class="contact-me-btn contact-me-btn--hero hero__action-btn"
+    (click)="openDialog()"
+  >
+    <span class="hero__action-icon" aria-hidden="true">
+      <mat-icon fontIcon="mail"></mat-icon>
+    </span>
+    Написать мне
+  </button>
+  } @else {
+  <button
+    mat-flat-button
+    class="contact-me-btn"
+    (click)="openDialog()"
+  >
+    Написать мне
+  </button>
+  }
 }
 <ng-template let-data #modal>
   <h2 mat-dialog-title class="title">Написать мне</h2>

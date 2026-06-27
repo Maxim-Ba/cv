@@ -2,12 +2,17 @@ import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { ApplicationStabService } from '../services/application-stab/application-stab.service';
+import { SKIP_HTTP_ERROR_NOTIFY } from './http-context';
 
 export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
   const notifyService = inject(ApplicationStabService);
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
+      if (req.context.get(SKIP_HTTP_ERROR_NOTIFY)) {
+        return throwError(() => error);
+      }
+
       let message = 'Произошла ошибка';
 
       if (error.status === 0) {

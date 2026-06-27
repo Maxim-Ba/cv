@@ -1,9 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Inject,
   OnInit,
-  Renderer2,
   Type,
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
@@ -13,7 +11,7 @@ import { AboutMeComponent } from './sections/about-me/about-me.component';
 import { MainInfoComponent } from './sections/main-info/main-info.component';
 import { TechnologiesComponent } from './sections/technologies/technologies.component';
 import { WorkHistoryComponent } from './sections/work-history/work-history.component';
-import { DOCUMENT, NgComponentOutlet } from '@angular/common';
+import { NgComponentOutlet } from '@angular/common';
 import { TechnologyDrawerComponent } from './widgets/technology-drawer/technology-drawer.component';
 import { EducationComponent } from './sections/education/education.component';
 import { ScrollUpComponent } from './widgets/scroll-up/scroll-up.component';
@@ -51,8 +49,6 @@ interface ISectionMap {
 })
 export class AppComponent implements OnInit {
   constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
     private meta: Meta,
     private titleService: Title
   ) {}
@@ -127,10 +123,5 @@ export class AppComponent implements OnInit {
           'Опыт разработки: Go REST API, Angular 17 SSR, PostgreSQL, Docker, CI/CD.',
       },
     ]);
-  }
-
-  switchMode(isDarkMode: boolean): void {
-    const hostClass = isDarkMode ? 'theme-dark' : '';
-    this.renderer.setAttribute(this.document.body, 'class', hostClass);
   }
 }

@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnInit,
   inject,
   signal,
   TemplateRef,
@@ -47,7 +48,7 @@ import { FormTextareaItemComponent } from '../../shared/ui-kit/form-textarea-ite
   styleUrl: './contact-me.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactMeComponent {
+export class ContactMeComponent implements OnInit {
   @Input() variant: 'toolbar' | 'hero' = 'toolbar';
   public title = 'Связаться со мной';
   private dialogRef?: MatDialogRef<any> = undefined;
@@ -55,9 +56,13 @@ export class ContactMeComponent {
 
   @ViewChild('modal') modal = {} as TemplateRef<string>;
   public stabService = inject(ApplicationStabService);
-  private notifyService = inject(NotifyMaximService);
+  readonly notifyService = inject(NotifyMaximService);
 
   readonly isSending = signal(false);
+
+  ngOnInit(): void {
+    this.notifyService.checkAvailability();
+  }
 
   feedbackForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

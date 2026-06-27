@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ApplicationStabService } from '../../services/application-stab/application-stab.service';
 
 @Component({
   selector: 'app-gitlab-link',
@@ -9,6 +8,4 @@ import { ApplicationStabService } from '../../services/application-stab/applicat
   templateUrl: './gitlab-link.component.html',
   styleUrl: './gitlab-link.component.scss',
 })
-export class GitlabLinkComponent {
-  public stabService = inject(ApplicationStabService);
-}
+export class GitlabLinkComponent {}

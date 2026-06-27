@@ -1,6 +1,6 @@
 <app-navbar>
   <div appMargins class="header-content">
-    <app-gitlab-link class="header-content__gitlab"></app-gitlab-link>
+    <app-gitlab-link class="header-content__github"></app-gitlab-link>
     <a mat-icon-anchor matTooltip="Связаться со мной в Telegram" href={{links.telegram.href}} target="_blank">
       <img width="18px" src="../../../assets/icons/telegram.svg" alt={{links.telegram.label}}>
     </a>
@@ -28,7 +28,7 @@
     <app-contact-me class="header-content__contact"></app-contact-me>
     <div class="toggler-wrapper">
       <mat-icon aria-hidden="false" aria-label="download CV" fontIcon="light_mode"></mat-icon>
-      <mat-slide-toggle class="example-margin" (change)="onDarkModeSwitch($event)" [checked]="checked"
+      <mat-slide-toggle class="example-margin" (change)="onDarkModeSwitch($event)" [checked]="themeService.isDarkMode()"
         [disabled]="disabled"></mat-slide-toggle>
       <mat-icon aria-hidden="false" aria-label="download CV" fontIcon="nightlight"></mat-icon>
     </div>

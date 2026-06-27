@@ -1,0 +1,17 @@
+:host {
+  display: inline-flex;
+}
+
+a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+:host-context(body.theme-dark) a {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: var(--cv-radius-sm);
+  padding: var(--cv-space-1);
+}
