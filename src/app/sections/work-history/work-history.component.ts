@@ -4,6 +4,7 @@ import { WorkHistoryWithTechnologiesDto } from '../../api/models/dto/work-histor
 import { TechnologyItemComponent } from '../../widgets/technology-item/technology-item.component';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
 import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/section-wrapper.component';
+import { formatIsoDateToMonthYear } from '../../utils/format-iso-date';
 
 @Component({
   selector: 'app-work-history',
@@ -36,5 +37,13 @@ export class WorkHistoryComponent implements OnInit {
         this.isLoading.set(false);
       },
     });
+  }
+
+  protected formatPeriodStart(date?: string): string {
+    return formatIsoDateToMonthYear(date) ?? '?';
+  }
+
+  protected formatPeriodEnd(date?: string): string {
+    return formatIsoDateToMonthYear(date) ?? 'н.в.';
   }
 }

@@ -17,7 +17,7 @@
         </div>
         @if (work.periodStart || work.periodEnd) {
         <span class="timeline__period">
-          {{ work.periodStart ?? '?' }} — {{ work.periodEnd ?? 'н.в.' }}
+          {{ formatPeriodStart(work.periodStart) }} — {{ formatPeriodEnd(work.periodEnd) }}
         </span>
         }
       </header>
