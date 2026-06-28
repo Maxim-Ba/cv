@@ -1,6 +1,8 @@
+@if (!technologiesService._isOpen()) {
 <button
   mat-fab
   (click)="scrollToTop()"
 >
   <mat-icon>arrow_upward</mat-icon>
 </button>
+}

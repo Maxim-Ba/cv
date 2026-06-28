@@ -1,7 +1,8 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { TechnologiesService } from '../../services/technologies/technologies.service';
 
 @Component({
   selector: 'app-scroll-up',
@@ -11,6 +12,8 @@ import { MatIcon } from '@angular/material/icon';
   styleUrl: './scroll-up.component.scss',
 })
 export class ScrollUpComponent {
+  readonly technologiesService = inject(TechnologiesService);
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
     @Inject(DOCUMENT) private document: Document
