@@ -8,23 +8,20 @@
   class="technology-drawer"
   [class.transition-on]="technologiesService.isOpen"
 >
-  <p class="title">{{technologiesService.title}}</p>
-  <p>{{technologiesService.description}}</p>
-  <!-- <div class="tags-wrapper">
-    <span>Теги:</span>
+  <p class="title">{{ technologiesService.title }}</p>
+  <p class="description">{{ technologiesService.description }}</p>
+  @if (technologiesService.tags.length) {
+  <div class="tags-wrapper">
+    <span class="tags-wrapper__label">Теги:</span>
     <div class="tags">
-
-      @for (tag of technologiesService.getTagsByTagNames(technologiesService.tagsIDs); track tag.id) {
-      <span>{{tag.name}} </span>
-      <app-tag
-        [color]="tag.color"
-        [id]="tag.id"
-        [tagLabel]="tag.name"
-      ></app-tag>
+      @for (tag of technologiesService.tags; track tag.id) {
+      <span
+        class="technology-drawer__tag"
+        [style.background-color]="tag.hexColor ?? ''"
+      >{{ tag.name }}</span>
       }
-
     </div>
-
-  </div> -->
+  </div>
+  }
   <button (click)="close()">close</button>
 </div>

@@ -14,7 +14,7 @@ export class TechApiService {
   private config = inject(ApiConfiguration);
 
   getTechnologies(): Observable<TechnologyWithTagsDto[]> {
-    return techGet(this.http, this.config.rootUrl).pipe(
+    return techGet(this.http, this.config.rootUrl, { size: 0 }).pipe(
       map((r) => r.body?.content ?? []),
       catchError(() => EMPTY)
     );

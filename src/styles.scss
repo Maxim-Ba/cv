@@ -88,3 +88,9 @@ body {
 .cdk-overlay-container {
   z-index: 1100;
 }
+
+.chips-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cv-space-2);
+}

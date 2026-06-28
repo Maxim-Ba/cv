@@ -9,13 +9,21 @@
     <div class="timeline__marker" aria-hidden="true"></div>
     <div class="timeline__card">
       <header class="timeline__header">
-        <h3 class="timeline__org">{{ work.name }}</h3>
+        <div class="timeline__title-group">
+          <h3 class="timeline__org">{{ work.name }}</h3>
+          @if (work.jobTitle) {
+          <p class="timeline__role">{{ work.jobTitle }}</p>
+          }
+        </div>
         @if (work.periodStart || work.periodEnd) {
         <span class="timeline__period">
           {{ work.periodStart ?? '?' }} — {{ work.periodEnd ?? 'н.в.' }}
         </span>
         }
       </header>
+      @if (work.about) {
+      <p class="timeline__about">{{ work.about }}</p>
+      }
       <p class="timeline__label">Что использовал в работе:</p>
       <div class="chips-flow">
         @for (technology of (work.technologies ?? []); track technology.id) {

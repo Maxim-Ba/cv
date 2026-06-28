@@ -4,6 +4,7 @@
 export interface WorkHistoryDto {
   about?: string;
   id?: number;
+  jobTitle?: string;
   logoUrl?: string;
   name?: string;
   periodEnd?: string;

@@ -5,6 +5,7 @@ import { TechnologyWithTagsDto as DtoTechnologyWithTagsDto } from '../../models/
 export interface WorkHistoryWithTechnologiesDto {
   about?: string;
   id?: number;
+  jobTitle?: string;
   logoUrl?: string;
   name?: string;
   periodEnd?: string;

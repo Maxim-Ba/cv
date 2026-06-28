@@ -72,10 +72,17 @@
 .timeline__header {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--cv-space-2);
   margin-bottom: var(--cv-space-4);
+}
+
+.timeline__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cv-space-1);
+  min-width: 0;
 }
 
 .timeline__org {
@@ -84,6 +91,14 @@
   font-weight: 600;
   color: var(--cv-text-primary);
   transition: color var(--cv-transition);
+}
+
+.timeline__role {
+  margin: 0;
+  font-size: var(--cv-font-body);
+  font-weight: 500;
+  color: var(--cv-text-muted);
+  line-height: var(--cv-line-height-body);
 }
 
 .timeline__period {
@@ -95,6 +110,13 @@
   padding: var(--cv-space-1) var(--cv-space-3);
 }
 
+.timeline__about {
+  margin: 0 0 var(--cv-space-4);
+  color: var(--cv-text-primary);
+  font-size: var(--cv-font-body);
+  line-height: var(--cv-line-height-body);
+}
+
 .timeline__label {
   margin: 0 0 var(--cv-space-2);
   font-size: var(--cv-font-caption);
@@ -102,6 +124,10 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--cv-text-muted);
+}
+
+.chips-flow + .timeline__label {
+  margin-top: 3px;
 }
 
 .timeline__tasks {

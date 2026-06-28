@@ -15,6 +15,7 @@ export interface ITechnologyItem {
 export interface IWorkHistoryItem {
   id: number;
   name: string;
+  jobTitle: string;
   about: string;
   logoUrl: string;
   periodStart: string | null;
