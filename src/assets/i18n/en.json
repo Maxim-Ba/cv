@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "about": "About",
+    "work": "Experience",
+    "technologies": "Stack",
+    "education": "Education"
+  },
+  "sections": {
+    "about": "About me",
+    "work": "Work history",
+    "technologies": "Technologies",
+    "education": "Education"
+  },
+  "header": {
+    "telegramTooltip": "Contact me on Telegram",
+    "whatsappTooltip": "Contact me on WhatsApp",
+    "emailTooltip": "Send me an email",
+    "downloadTooltip": "Download CV as PDF",
+    "githubTooltip": "My GitHub"
+  },
+  "hero": {
+    "telegramTooltip": "Contact on Telegram",
+    "downloadTooltip": "Download CV as PDF",
+    "telegram": "Telegram",
+    "downloadCv": "Download CV",
+    "writeMe": "Write to me"
+  },
+  "contact": {
+    "title": "Write to me",
+    "emailPlaceholder": "Enter your email",
+    "namePlaceholder": "Your name",
+    "nameLabel": "Name",
+    "messagePlaceholder": "Enter your message",
+    "close": "Close",
+    "sending": "Sending...",
+    "send": "Send",
+    "button": "Write to me",
+    "emailInvalid": "Invalid email",
+    "required": "Required field",
+    "sent": "Message sent!",
+    "sendError": "Failed to send. Please try again later."
+  },
+  "workHistory": {
+    "presentLabel": "present",
+    "loading": "Loading...",
+    "error": "Failed to load work history.",
+    "stackUsed": "Stack used at work:",
+    "responsibilities": "What I did:",
+    "projects": "Projects:"
+  },
+  "education": {
+    "yearSuffix": ""
+  },
+  "technologyDrawer": {
+    "close": "Close",
+    "tags": "Tags:"
+  },
+  "tagFilter": {
+    "all": "All",
+    "ariaLabel": "Filter by tags"
+  },
+  "sectionNav": {
+    "ariaLabel": "Section navigation"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "noConnection": "No connection to the server",
+    "server": "Server error. Please try again later.",
+    "notFound": "Resource not found",
+    "forbidden": "Access denied"
+  },
+  "notifications": {
+    "downloadFailed": "Failed to download PDF",
+    "downloadSuccess": "CV downloaded successfully"
+  },
+  "meta": {
+    "title": "Maxim Balashov — Full-Stack Developer",
+    "description": "Portfolio of Full-Stack developer Maxim Balashov: Go, Angular, PostgreSQL, Docker, SSR.",
+    "ogTitle": "Maxim Balashov — Full-Stack Developer",
+    "ogDescription": "Experience: Go REST API, Angular 17 SSR, PostgreSQL, Docker, CI/CD."
+  },
+  "language": {
+    "ru": "RU",
+    "en": "EN"
+  }
+}

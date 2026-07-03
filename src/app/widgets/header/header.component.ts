@@ -10,11 +10,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ApplicationStabService } from '../../services/application-stab/application-stab.service';
 import { DownloadCvService } from '../../services/download-cv/download-cv.service';
 import { NavbarComponent } from '../../shared/ui-kit/navbar/navbar.component';
 import { CONTACT_LINKS } from '../../shared/constants/contact-links';
 import { ThemeService } from '../../services/theme/theme.service';
+import { LanguageService, AppLang } from '../../services/language/language.service';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-header',
@@ -29,20 +30,25 @@ import { ThemeService } from '../../services/theme/theme.service';
     MatButtonModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    TranslocoModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  public stabService = inject(ApplicationStabService);
   public downloadCvService = inject(DownloadCvService);
   public themeService = inject(ThemeService);
+  public languageService = inject(LanguageService);
 
   public links = CONTACT_LINKS;
   disabled = false;
 
   onDarkModeSwitch(change: MatSlideToggleChange): void {
     this.themeService.setDarkMode(change.checked);
+  }
+
+  setLanguage(lang: AppLang): void {
+    this.languageService.setLang(lang);
   }
 }

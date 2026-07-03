@@ -6,6 +6,7 @@ export type { AboutMeDto as DtoAboutMeDto } from './models/dto/about-me-dto';
 export type { DeleteResponse as DtoDeleteResponse } from './models/dto/delete-response';
 export type { EducationDto as DtoEducationDto } from './models/dto/education-dto';
 export type { EducationListResponse as DtoEducationListResponse } from './models/dto/education-list-response';
+export type { HeroDto as DtoHeroDto } from './models/dto/hero-dto';
 export type { TagDto as DtoTagDto } from './models/dto/tag-dto';
 export type { TagListResponse as DtoTagListResponse } from './models/dto/tag-list-response';
 export type { TechListResponse as DtoTechListResponse } from './models/dto/tech-list-response';

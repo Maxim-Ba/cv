@@ -13,6 +13,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { TranslocoModule } from '@jsverse/transloco';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
 
 export interface SectionNavItem {
@@ -23,7 +24,7 @@ export interface SectionNavItem {
 @Component({
   selector: 'app-section-nav',
   standalone: true,
-  imports: [MarginsDirective],
+  imports: [MarginsDirective, TranslocoModule],
   templateUrl: './section-nav.component.html',
   styleUrl: './section-nav.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

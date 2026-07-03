@@ -1,4 +1,4 @@
-<nav appMargins class="section-nav" aria-label="Навигация по секциям">
+<nav appMargins class="section-nav" [attr.aria-label]="'sectionNav.ariaLabel' | transloco">
   <div class="section-nav__track">
     @for (item of items; track item.id) {
       <button

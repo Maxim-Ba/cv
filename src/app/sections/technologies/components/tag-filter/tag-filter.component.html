@@ -1,4 +1,4 @@
-<mat-chip-listbox class="tag-filter__list" aria-label="Фильтр по тегам">
+<mat-chip-listbox class="tag-filter__list" [attr.aria-label]="'tagFilter.ariaLabel' | transloco">
   @for (tag of tags(); track tag.id) {
     <app-tag
       [id]="tag.id ?? 0"

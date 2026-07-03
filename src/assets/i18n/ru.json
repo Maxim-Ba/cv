@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "about": "О себе",
+    "work": "Опыт",
+    "technologies": "Стек",
+    "education": "Образование"
+  },
+  "sections": {
+    "about": "О себе",
+    "work": "Места работы",
+    "technologies": "Используемые технологии",
+    "education": "Образование"
+  },
+  "header": {
+    "telegramTooltip": "Связаться со мной в Telegram",
+    "whatsappTooltip": "Связаться со мной в Whatsapp",
+    "emailTooltip": "Напишите на мой Email",
+    "downloadTooltip": "Скачать CV в PDF",
+    "githubTooltip": "Мой GitHub"
+  },
+  "hero": {
+    "telegramTooltip": "Связаться в Telegram",
+    "downloadTooltip": "Скачать CV в PDF",
+    "telegram": "Telegram",
+    "downloadCv": "Скачать CV",
+    "writeMe": "Написать мне"
+  },
+  "contact": {
+    "title": "Написать мне",
+    "emailPlaceholder": "Введите email",
+    "namePlaceholder": "Как вас зовут",
+    "nameLabel": "Имя",
+    "messagePlaceholder": "Введите текст сообщения",
+    "close": "Закрыть",
+    "sending": "Отправка...",
+    "send": "Отправить",
+    "button": "Написать мне",
+    "emailInvalid": "Не валидный email",
+    "required": "Обязательное поле",
+    "sent": "Сообщение отправлено!",
+    "sendError": "Ошибка отправки. Попробуйте позже."
+  },
+  "workHistory": {
+    "presentLabel": "по наст. время",
+    "loading": "Загрузка...",
+    "error": "Не удалось загрузить места работы.",
+    "stackUsed": "Что использовал в работе:",
+    "responsibilities": "Что я делал:",
+    "projects": "Проекты:"
+  },
+  "education": {
+    "yearSuffix": "г."
+  },
+  "technologyDrawer": {
+    "close": "Закрыть",
+    "tags": "Теги:"
+  },
+  "tagFilter": {
+    "all": "Все",
+    "ariaLabel": "Фильтр по тегам"
+  },
+  "sectionNav": {
+    "ariaLabel": "Навигация по секциям"
+  },
+  "footer": {
+    "rights": "Все права защищены."
+  },
+  "errors": {
+    "generic": "Произошла ошибка",
+    "noConnection": "Нет соединения с сервером",
+    "server": "Ошибка сервера. Попробуйте позже.",
+    "notFound": "Ресурс не найден",
+    "forbidden": "Доступ запрещён"
+  },
+  "notifications": {
+    "downloadFailed": "Не удалось скачать PDF",
+    "downloadSuccess": "CV успешно скачан"
+  },
+  "meta": {
+    "title": "Балашов Максим — Full-Stack разработчик",
+    "description": "Портфолио Full-Stack разработчика Балашова Максима: Go, Angular, PostgreSQL, Docker, SSR.",
+    "ogTitle": "Балашов Максим — Full-Stack разработчик",
+    "ogDescription": "Опыт разработки: Go REST API, Angular 17 SSR, PostgreSQL, Docker, CI/CD."
+  },
+  "language": {
+    "ru": "RU",
+    "en": "EN"
+  }
+}

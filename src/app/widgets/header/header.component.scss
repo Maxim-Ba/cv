@@ -30,5 +30,25 @@
         display: flex;
       }
     }
+    .lang-switcher {
+      display: inline-flex;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      overflow: hidden;
+      flex-shrink: 0;
+      &__btn {
+        border: 0;
+        background: transparent;
+        color: inherit;
+        padding: 4px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        line-height: 1;
+        &--active {
+          background: rgba(255, 255, 255, 0.18);
+        }
+      }
+    }
   }
 }

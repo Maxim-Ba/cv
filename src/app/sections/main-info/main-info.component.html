@@ -3,24 +3,24 @@
     <img
       class="hero__avatar-image"
       src="assets/img/I%20HH.jpeg"
-      alt="Балашов Максим"
+      [alt]="hero()?.fullName ?? 'CV'"
       width="96"
       height="96"
     />
   </div>
   <div class="hero__body">
-    <p class="hero__greeting">Здравствуйте!</p>
-    <h1 class="hero__name">Балашов Максим</h1>
-    <p class="hero__role">Full-Stack разработчик</p>
-    <p class="hero__pitch">
-      Эта страница рассказывает о моих знаниях и навыках в области web-разработки.
-    </p>
+    @if (hero(); as data) {
+      <p class="hero__greeting">{{ data.greeting }}</p>
+      <h1 class="hero__name">{{ data.fullName }}</h1>
+      <p class="hero__role">{{ data.title }}</p>
+      <p class="hero__pitch">{{ data.pitch }}</p>
+    }
     <div class="hero__actions">
       <app-gitlab-link></app-gitlab-link>
       <a
         mat-stroked-button
         class="hero__action-btn"
-        matTooltip="Связаться в Telegram"
+        [matTooltip]="'hero.telegramTooltip' | transloco"
         [href]="links.telegram.href"
         target="_blank"
         rel="noopener noreferrer"
@@ -28,14 +28,14 @@
         <span class="hero__action-icon" aria-hidden="true">
           <img width="18" height="18" src="assets/icons/telegram.svg" [alt]="links.telegram.label" />
         </span>
-        Telegram
+        {{ 'hero.telegram' | transloco }}
       </a>
       <app-contact-me variant="hero"></app-contact-me>
       <button
         mat-flat-button
         color="primary"
         class="hero__action-btn"
-        matTooltip="Скачать CV в PDF"
+        [matTooltip]="'hero.downloadTooltip' | transloco"
         [disabled]="downloadCvService.isDownloading()"
         (click)="downloadCvService.downloadCV()"
       >
@@ -46,7 +46,7 @@
             <mat-icon fontIcon="download"></mat-icon>
           }
         </span>
-        Скачать CV
+        {{ 'hero.downloadCv' | transloco }}
       </button>
     </div>
   </div>

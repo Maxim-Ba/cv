@@ -1,19 +1,7 @@
-const RUSSIAN_MONTHS = [
-  'январь',
-  'февраль',
-  'март',
-  'апрель',
-  'май',
-  'июнь',
-  'июль',
-  'август',
-  'сентябрь',
-  'октябрь',
-  'ноябрь',
-  'декабрь',
-] as const;
-
-export function formatIsoDateToMonthYear(value?: string | null): string | null {
+export function formatIsoDateToMonthYear(
+  value?: string | null,
+  locale = 'ru',
+): string | null {
   if (!value) {
     return null;
   }
@@ -26,9 +14,14 @@ export function formatIsoDateToMonthYear(value?: string | null): string | null {
   const [, year, month] = match;
   const monthIndex = Number(month) - 1;
 
-  if (monthIndex < 0 || monthIndex >= RUSSIAN_MONTHS.length) {
+  if (monthIndex < 0 || monthIndex > 11) {
     return value;
   }
 
-  return `${RUSSIAN_MONTHS[monthIndex]} ${year}`;
+  const date = new Date(Number(year), monthIndex, 1);
+  const monthName = date.toLocaleString(locale === 'en' ? 'en-US' : 'ru-RU', {
+    month: 'long',
+  });
+
+  return `${monthName} ${year}`;
 }

@@ -1,7 +1,7 @@
 @if (isLoading()) {
-<p class="loading-state">Загрузка...</p>
+<p class="loading-state">{{ 'workHistory.loading' | transloco }}</p>
 } @else if (hasError()) {
-<p class="error-state">Не удалось загрузить места работы.</p>
+<p class="error-state">{{ 'workHistory.error' | transloco }}</p>
 } @else {
 <div class="timeline">
   @for (work of works(); track work.id) {
@@ -24,7 +24,7 @@
       @if (work.about) {
       <p class="timeline__about">{{ work.about }}</p>
       }
-      <p class="timeline__label">Что использовал в работе:</p>
+      <p class="timeline__label">{{ 'workHistory.stackUsed' | transloco }}</p>
       <div class="chips-flow">
         @for (technology of (work.technologies ?? []); track technology.id) {
         <app-technology-item
@@ -36,7 +36,7 @@
         }
       </div>
       @if ((work.whatIDid ?? []).length) {
-      <p class="timeline__label">Что я делал:</p>
+      <p class="timeline__label">{{ 'workHistory.responsibilities' | transloco }}</p>
       <ul class="timeline__tasks">
         @for (whatIDoItem of (work.whatIDid ?? []); track whatIDoItem) {
         <li>{{ whatIDoItem }}</li>

@@ -13,7 +13,7 @@
       type="button"
       class="technology-drawer__close"
       (click)="close()"
-      aria-label="Закрыть"
+      [attr.aria-label]="'technologyDrawer.close' | transloco"
     >
       ×
     </button>
@@ -23,7 +23,7 @@
     <p class="description">{{ technologiesService.description }}</p>
     @if (technologiesService.tags.length) {
     <div class="tags-wrapper">
-      <span class="tags-wrapper__label">Теги:</span>
+      <span class="tags-wrapper__label">{{ 'technologyDrawer.tags' | transloco }}</span>
       <div class="tags">
         @for (tag of technologiesService.tags; track tag.id) {
         <span

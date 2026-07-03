@@ -8,7 +8,7 @@
     <span class="hero__action-icon" aria-hidden="true">
       <mat-icon fontIcon="mail"></mat-icon>
     </span>
-    Написать мне
+    {{ 'hero.writeMe' | transloco }}
   </button>
   } @else {
   <button
@@ -16,17 +16,17 @@
     class="contact-me-btn"
     (click)="openDialog()"
   >
-    Написать мне
+    {{ 'contact.button' | transloco }}
   </button>
   }
 }
 <ng-template let-data #modal>
-  <h2 mat-dialog-title class="title">Написать мне</h2>
+  <h2 mat-dialog-title class="title">{{ 'contact.title' | transloco }}</h2>
   <mat-dialog-content>
     <form class="form" [formGroup]="feedbackForm" (ngSubmit)="send()" id="feedback">
       <app-form-field-item
         [hint]="emailHint"
-        placeholder="Введите email"
+        [placeholder]="'contact.emailPlaceholder' | transloco"
         name="email"
         formControlName="email"
         label="Email"
@@ -34,16 +34,16 @@
         [validator]="this.feedbackForm.controls.email.validator"
       ></app-form-field-item>
       <app-form-field-item
-        placeholder="Как вас зовут"
+        [placeholder]="'contact.namePlaceholder' | transloco"
         name="name"
         formControlName="name"
-        label="Имя"
+        [label]="'contact.nameLabel' | transloco"
         [hint]="nameHint"
         [validator]="this.feedbackForm.controls.name.validator"
       ></app-form-field-item>
       <app-form-textarea-item
         [hint]="messageHint"
-        placeholder="Введите текст сообщения"
+        [placeholder]="'contact.messagePlaceholder' | transloco"
         name="message"
         formControlName="message"
         [validator]="this.feedbackForm.controls.message.validator"
@@ -52,10 +52,10 @@
   </mat-dialog-content>
   <mat-dialog-actions align="center">
     <button type="button" (click)="closeDialog()" mat-raised-button [mat-dialog-close]="data">
-      Закрыть
+      {{ 'contact.close' | transloco }}
     </button>
     <button color="primary" type="submit" form="feedback" mat-flat-button [disabled]="isSending()">
-      {{ isSending() ? 'Отправка...' : 'Отправить' }}
+      {{ isSending() ? ('contact.sending' | transloco) : ('contact.send' | transloco) }}
     </button>
   </mat-dialog-actions>
 </ng-template>

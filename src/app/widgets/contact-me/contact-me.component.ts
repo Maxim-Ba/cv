@@ -24,6 +24,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 import { ApplicationStabService } from '../../services/application-stab/application-stab.service';
 import { NotifyMaximService } from '../../services/notify-maxim/notify-maxim.service';
@@ -43,6 +44,7 @@ import { FormTextareaItemComponent } from '../../shared/ui-kit/form-textarea-ite
     FormFieldItemComponent,
     FormTextareaItemComponent,
     MatIconModule,
+    TranslocoModule,
   ],
   templateUrl: './contact-me.component.html',
   styleUrl: './contact-me.component.scss',
@@ -50,9 +52,9 @@ import { FormTextareaItemComponent } from '../../shared/ui-kit/form-textarea-ite
 })
 export class ContactMeComponent implements OnInit {
   @Input() variant: 'toolbar' | 'hero' = 'toolbar';
-  public title = 'Связаться со мной';
-  private dialogRef?: MatDialogRef<any> = undefined;
+  private dialogRef?: MatDialogRef<unknown> = undefined;
   readonly dialog = inject(MatDialog);
+  private transloco = inject(TranslocoService);
 
   @ViewChild('modal') modal = {} as TemplateRef<string>;
   public stabService = inject(ApplicationStabService);
@@ -69,61 +71,68 @@ export class ContactMeComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     message: new FormControl('', [Validators.required]),
   });
+
   get emailHint() {
     const email = this.feedbackForm.get('email');
-
     const errors = email?.errors;
     if (!this.feedbackForm.controls.email.touched) {
       return '';
     }
-    // TODO отрефакторить на paternMatching
     if (errors?.['email']) {
-      return 'Не валидный email';
+      return this.transloco.translate('contact.emailInvalid');
     }
     if (errors?.['required']) {
-      return 'Обязательное поле';
+      return this.transloco.translate('contact.required');
     }
     return '';
   }
+
   get messageHint() {
     const errors = this.feedbackForm.get('message')?.errors;
     if (!this.feedbackForm.controls.message.touched) {
       return '';
     }
     if (errors?.['required']) {
-      return 'Обязательное поле';
+      return this.transloco.translate('contact.required');
     }
     return '';
   }
+
   get nameHint() {
     const errors = this.feedbackForm.get('name')?.errors;
     if (!this.feedbackForm.controls.name.touched) {
       return '';
     }
     if (errors?.['required']) {
-      return 'Обязательное поле';
+      return this.transloco.translate('contact.required');
     }
-
     return '';
   }
+
   openDialog() {
     this.dialogRef = this.dialog.open(this.modal, { data: 'dialog data' });
   }
+
   closeDialog() {
     this.dialogRef?.close();
   }
+
   send() {
     if (!this.feedbackForm.valid || this.isSending()) return;
     this.isSending.set(true);
-    const { name, email, message } = this.feedbackForm.value as { name: string; email: string; message: string };
+    const { name, email, message } = this.feedbackForm.value as {
+      name: string;
+      email: string;
+      message: string;
+    };
     this.notifyService.send({ name, email, message }).subscribe({
       next: () => {
-        this.stabService.notify('Сообщение отправлено!');
+        this.stabService.notify(this.transloco.translate('contact.sent'));
         this.feedbackForm.reset();
         this.closeDialog();
       },
       error: () => {
-        this.stabService.notify('Ошибка отправки. Попробуйте позже.');
+        this.stabService.notify(this.transloco.translate('contact.sendError'));
       },
       complete: () => this.isSending.set(false),
     });
