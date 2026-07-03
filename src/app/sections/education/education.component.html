@@ -1,7 +1,7 @@
 <div class="education-list">
   @for (eduItem of education(); track eduItem.id) {
   <article class="education-card">
-    <span class="education-card__year">{{ eduItem.year }} {{ 'education.yearSuffix' | transloco }}</span>
+    <span class="education-card__year">{{ 'education.year' | transloco: { year: eduItem.year } }}</span>
     <h3 class="education-card__course">{{ eduItem.course }}</h3>
     <p class="education-card__org">{{ eduItem.organization }}</p>
   </article>

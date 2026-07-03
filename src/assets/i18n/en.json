@@ -49,7 +49,7 @@
     "projects": "Projects:"
   },
   "education": {
-    "yearSuffix": ""
+    "year": "{{year}}"
   },
   "technologyDrawer": {
     "close": "Close",

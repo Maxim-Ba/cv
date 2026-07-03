@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.applyMetaTags();
-    this.transloco.langChanges$.subscribe(() => this.applyMetaTags());
+    this.languageService.langChanges$.subscribe(() => this.applyMetaTags());
   }
 
   private applyMetaTags(): void {

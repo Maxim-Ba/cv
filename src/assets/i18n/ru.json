@@ -49,7 +49,7 @@
     "projects": "Проекты:"
   },
   "education": {
-    "yearSuffix": "г."
+    "year": "{{year}} г."
   },
   "technologyDrawer": {
     "close": "Закрыть",

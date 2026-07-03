@@ -39,16 +39,15 @@ export class LanguageService {
   }
 
   private applyLang(lang: AppLang, notify: boolean): Promise<void> {
-    this.currentLang.set(lang);
-    this.translationsReady.set(false);
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem(STORAGE_KEY, lang);
-      document.cookie = `${COOKIE_KEY}=${lang};path=/;max-age=31536000;SameSite=Lax`;
-      document.documentElement.lang = lang;
-    }
-    this.transloco.setActiveLang(lang);
     return firstValueFrom(this.transloco.load(lang)).then(() => {
+      this.currentLang.set(lang);
+      this.transloco.setActiveLang(lang);
       this.translationsReady.set(true);
+      if (isPlatformBrowser(this.platformId)) {
+        localStorage.setItem(STORAGE_KEY, lang);
+        document.cookie = `${COOKIE_KEY}=${lang};path=/;max-age=31536000;SameSite=Lax`;
+        document.documentElement.lang = lang;
+      }
       if (notify) {
         this.langChangesSubject.next(lang);
       }
