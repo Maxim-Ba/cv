@@ -1,29 +1,43 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+import { TranslocoTestingModule } from '@jsverse/transloco';
 import { AppComponent } from './app.component';
+import { provideApiConfiguration } from './api/api-configuration';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [
+        AppComponent,
+        TranslocoTestingModule.forRoot({
+          langs: { ru: {}, en: {} },
+          translocoConfig: { availableLangs: ['ru', 'en'], defaultLang: 'ru' },
+        }),
+      ],
+      providers: [
+        provideRouter([]),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideNoopAnimations(),
+        provideApiConfiguration('/api'),
+      ],
     }).compileComponents();
   });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have the 'balashov-cv-client' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('balashov-cv-client');
-  });
-
-  it('should render title', () => {
+  it('should render every CV section', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, balashov-cv-client');
+    const sectionIds = Array.from(
+      (fixture.nativeElement as HTMLElement).querySelectorAll('app-section-wrapper'),
+    ).length;
+    expect(sectionIds).toBe(5);
   });
 });

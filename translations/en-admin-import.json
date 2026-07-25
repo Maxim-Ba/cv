@@ -1,0 +1,281 @@
+{
+  "_comment": "Английские переводы для вставки в админку cv-backend. Формат полей: {\"ru\": \"...\", \"en\": \"...\"}. Списки: {\"ru\": [...], \"en\": [...]}.",
+  "hero": {
+    "greeting": {
+      "ru": "Здравствуйте!",
+      "en": "Hello!"
+    },
+    "fullName": {
+      "ru": "Балашов Максим",
+      "en": "Maxim Balashov"
+    },
+    "title": {
+      "ru": "Full-Stack разработчик",
+      "en": "Full-Stack Developer"
+    },
+    "pitch": {
+      "ru": "Эта страница рассказывает о моих знаниях и навыках в области web-разработки.",
+      "en": "This page showcases my knowledge and skills in web development."
+    }
+  },
+  "aboutMe": {
+    "about": {
+      "ru": "Занимаюсь программированием с 2015 года, в web-разработке — с 2018-го. Full-Stack разработчик: проектирую и пишу фронтенд и бэкенд, участвую в архитектуре микросервисов, провожу code review и поддерживаю высокое тестовое покрытие. Основной стек — TypeScript/JavaScript, React, Angular, Go, Spring Boot.\n\nДо IT несколько лет программировал станки с ЧПУ — редактировал постпроцессоры и писал управляющие программы. Это научило точности, работе со спецификациями и генерацией кода; когда в 2018 году возможностей для роста на производстве не осталось, осознанно перешёл в IT и выбрал web как самое динамичное направление.\n\nСейчас работаю с корпоративными системами и микросервисами: UI на Angular, сервисы на Go и Java, интеграции через REST и очереди, observability (ELK, Grafana). Раньше — highload-фронт и real-time: торговые площадки, чаты на WebSocket, сложные UI с графиками и правами доступа.",
+      "en": "I have been programming since 2015 and working in web development since 2018. As a Full-Stack developer, I design and build frontend and backend, contribute to microservice architecture, conduct code reviews, and maintain high test coverage. My core stack is TypeScript/JavaScript, React, Angular, Go, and Spring Boot.\n\nBefore IT, I spent several years programming CNC machines — editing post-processors and writing control programs. That taught me precision, working with specifications, and code generation; when there was no room for growth in manufacturing in 2018, I deliberately moved into IT and chose web as the most dynamic field.\n\nToday I work with enterprise systems and microservices: Angular UI, Go and Java services, integrations via REST and message queues, observability (ELK, Grafana). Previously — high-load frontend and real-time: trading platforms, WebSocket chats, complex UIs with charts and access control."
+    },
+    "note": {
+      "ru": "Люблю Clean Architecture и функциональное программирование. Считаю важными: покрытие тестами, понятные API-контракты, автоматизация рутины (генерация кода, CI/CD)",
+      "en": "I enjoy Clean Architecture and functional programming. I value test coverage, clear API contracts, and automating routine work (code generation, CI/CD)."
+    },
+    "hobbies": {
+      "ru": "Мои хобби: армрестлинг, игра на барабанах и электрогитаре.",
+      "en": "My hobbies: arm wrestling, playing drums and electric guitar."
+    }
+  },
+  "workHistory": [
+    {
+      "id": 1,
+      "name": { "ru": "Diasoft", "en": "Diasoft" },
+      "jobTitle": {
+        "ru": "Ведущий разработчик (Fullstack, микросервисы)",
+        "en": "Lead Developer (Fullstack, Microservices)"
+      },
+      "about": {
+        "ru": "Информационные технологии, системная интеграция, интернет\n• Разработка программного обеспечения\n• Системная интеграция, автоматизация технологических и бизнес-процессов предприятия,\nИТ-консалтинг",
+        "en": "Information technology, system integration, internet\n• Software development\n• System integration, automation of enterprise technological and business processes,\nIT consulting"
+      },
+      "whatIDid": {
+        "ru": [
+          "Разработал npm-пакет для стандартных табличных форм – ускорил создание новых модулей на 30%.",
+          "Спроектировал и реализовал композитные API на Go для агрегации данных между сервисами.",
+          "Провожу код-ревью, пишу unit-тесты (Jest, JUnit), поддерживаю тестовое покрытие не ниже 80%.",
+          "Участвовал в проектировании API для микросервисов (Java/Go) и разработке UI на Angular.",
+          "Разрабатывал диаграммы бизнес процессов (bpmn , dmn) для Camunda с unit тестированием процессов и lint тестированием.",
+          "Настроил NGINX как reverse-proxy и для раздачи статики (кэширование заголовков Kerberos).",
+          "Настроил ELK стек с ротацией индексов."
+        ],
+        "en": [
+          "Developed an npm package for standard table forms — accelerated creation of new modules by 30%.",
+          "Designed and implemented composite APIs in Go for data aggregation across services.",
+          "Conduct code reviews, write unit tests (Jest, JUnit), and maintain test coverage of at least 80%.",
+          "Participated in API design for microservices (Java/Go) and Angular UI development.",
+          "Created business process diagrams (BPMN, DMN) for Camunda with unit testing of processes and lint testing.",
+          "Configured NGINX as a reverse proxy and for static file serving (Kerberos header caching).",
+          "Set up the ELK stack with index rotation."
+        ]
+      },
+      "projects": {
+        "ru": [
+          "Управление мероприятиями (аналог MS Outlook)",
+          "Система управления потоками данных (на основе camunda)",
+          "Управление складами",
+          "Бюджетирование предприятия",
+          "Библиотека Участники события"
+        ],
+        "en": [
+          "Event management (MS Outlook analogue)",
+          "Data flow management system (Camunda-based)",
+          "Warehouse management",
+          "Enterprise budgeting",
+          "Event Participants library"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": { "ru": "Абсолют-Трейд", "en": "Absolut-Trade" },
+      "jobTitle": {
+        "ru": "Fullstack-разработчик / Lead фронтенда",
+        "en": "Fullstack Developer / Frontend Lead"
+      },
+      "about": {
+        "ru": "Разработка софта для промышленных и логистических компаний. Разработка смарт контрактов без участия блокчейна.",
+        "en": "Software development for industrial and logistics companies. Smart contract development without blockchain."
+      },
+      "whatIDid": {
+        "ru": [
+          "Вывел два проекта (Электронная торговая площадка, SRM) из стадии ТЗ в промышленную эксплуатацию. Руководил командой фронтенда (3 человека).",
+          "Чат в реальном времени на WebSocket (бэк на Nest.js, Blacksheep + фронт React) – нагрузка до 500 одновременных соединений.",
+          "Онлайн-аукцион с переключением long polling → WebSocket – уменьшил задержки на 40%.",
+          "Система уведомлений и синхронизация вкладок (BroadcastChannel + SharedWorker) – нулевая потеря событий.",
+          "Модуль компенсации часового пояса - критично для торговой площадки с глобальными участниками.",
+          "Гибкая система доступа (permissions + подписки) – маппинг 50+ прав без переделки бэкенда.",
+          "Автоматизация генерации кода по openAPI: хуки RTK Query, WebSocket-события, пермишены – время интеграции нового API сократилось с 4 часов до 20 минут.",
+          "Внедрил юнит-тесты (Jest) и e2e-тесты (Playwright) – покрытие >70%, число багов на релиз снизилось вдвое.",
+          "Настроил CI/CD (GitLab CI): автотесты, сборка докер-образов, деплой на staging/production.",
+          "Настроил NGINX как reverse-proxy и для раздачи статики (кэширование, gzip).",
+          "Провёл 200+ собеседований и проводил код-ревью."
+        ],
+        "en": [
+          "Brought two projects (Electronic Trading Platform, SRM) from specification to production. Led a frontend team of 3.",
+          "Real-time chat over WebSocket (Nest.js/Blacksheep backend + React frontend) — up to 500 concurrent connections.",
+          "Online auction with long polling → WebSocket switch — reduced latency by 40%.",
+          "Notification system and tab synchronization (BroadcastChannel + SharedWorker) — zero event loss.",
+          "Time zone compensation module — critical for a trading platform with global participants.",
+          "Flexible access control (permissions + subscriptions) — mapping 50+ permissions without backend rework.",
+          "OpenAPI code generation automation: RTK Query hooks, WebSocket events, permissions — new API integration time reduced from 4 hours to 20 minutes.",
+          "Introduced unit tests (Jest) and e2e tests (Playwright) — >70% coverage, release bugs cut in half.",
+          "Set up CI/CD (GitLab CI): automated tests, Docker image builds, deploy to staging/production.",
+          "Configured NGINX as reverse proxy and static file server (caching, gzip).",
+          "Conducted 200+ interviews and code reviews."
+        ]
+      },
+      "projects": {
+        "ru": ["SRM система", "Электронная торговая площадка"],
+        "en": ["SRM system", "Electronic trading platform"]
+      }
+    },
+    {
+      "id": 3,
+      "name": {
+        "ru": "Индивидуальное предпринимательство / частная практика / фриланс",
+        "en": "Sole proprietorship / private practice / freelancing"
+      },
+      "jobTitle": {
+        "ru": "Fullstack-разработчик",
+        "en": "Fullstack Developer"
+      },
+      "about": {
+        "ru": "Разработка UI-части приложений на React, backend на django, express",
+        "en": "UI development with React, backend with Django and Express"
+      },
+      "whatIDid": {
+        "ru": [
+          "Спроектировал БД (Postgres) и написал сервис аналитики продаж (Express.js).",
+          "Визуализация данных (Highcharts.js) – 10+ типов графиков.",
+          "Реализовал авторизацию через JWT и систему доступа на основе ролей (RBAC).",
+          "Разработал CRUD-интерфейс для управления справочниками."
+        ],
+        "en": [
+          "Designed a PostgreSQL database and built a sales analytics service (Express.js).",
+          "Data visualization (Highcharts.js) — 10+ chart types.",
+          "Implemented JWT authentication and role-based access control (RBAC).",
+          "Built a CRUD interface for reference data management."
+        ]
+      },
+      "projects": {
+        "ru": [
+          "MVP аналитики продаж для компании сырьевого сектора (дашборды + ролевой доступ)",
+          "Верстка по макетам (Figma, Photoshop)"
+        ],
+        "en": [
+          "Sales analytics MVP for a commodity company (dashboards + role-based access)",
+          "Layout from designs (Figma, Photoshop)"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": {
+        "ru": "Производственная компания \"Штрай\"",
+        "en": "Manufacturing company \"Shtray\""
+      },
+      "jobTitle": {
+        "ru": "Инженер-программист",
+        "en": "Software Engineer"
+      },
+      "about": {
+        "ru": "Производственная компания. Приборосторение.",
+        "en": "Manufacturing company. Instrument engineering."
+      },
+      "whatIDid": {
+        "ru": [
+          "Редактирование постпроцессоров (задачи по генерации кода),",
+          "Написание управляющих программ"
+        ],
+        "en": [
+          "Editing post-processors (code generation tasks),",
+          "Writing control programs"
+        ]
+      },
+      "projects": {
+        "ru": ["Разработка приборов расхода жидкости"],
+        "en": ["Liquid flow meter device development"]
+      }
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "name": {
+        "ru": "Московский государственный технический университет \"МАМИ\", Москва",
+        "en": "Moscow State Technical University \"MAMI\", Moscow"
+      },
+      "course": {
+        "ru": "Механико-технологический факультет, Металлообрабатывающие станки и комплексы",
+        "en": "Faculty of Mechanics and Technology, Metalworking Machines and Complexes"
+      },
+      "organization": {
+        "ru": "МГТУ МАМИ",
+        "en": "MSTU MAMI"
+      }
+    }
+  ],
+  "tags": [
+    { "id": 1, "name": { "ru": "Backend", "en": "Backend" } },
+    { "id": 2, "name": { "ru": "Frontend", "en": "Frontend" } },
+    { "id": 3, "name": { "ru": "DevOps", "en": "DevOps" } },
+    { "id": 4, "name": { "ru": "Program Language", "en": "Programming Language" } },
+    { "id": 5, "name": { "ru": "Framework", "en": "Framework" } },
+    { "id": 6, "name": { "ru": "Testing", "en": "Testing" } },
+    { "id": 7, "name": { "ru": "Observability", "en": "Observability" } },
+    { "id": 8, "name": { "ru": "Linting", "en": "Linting" } },
+    { "id": 9, "name": { "ru": "Data visualization", "en": "Data Visualization" } },
+    { "id": 10, "name": { "ru": "Code generation", "en": "Code Generation" } },
+    { "id": 11, "name": { "ru": "CI/CD", "en": "CI/CD" } },
+    { "id": 12, "name": { "ru": "Database", "en": "Database" } },
+    { "id": 13, "name": { "ru": "OOP", "en": "OOP" } },
+    { "id": 14, "name": { "ru": "Queue", "en": "Queue" } },
+    { "id": 15, "name": { "ru": "UI", "en": "UI" } },
+    { "id": 16, "name": { "ru": "State manager", "en": "State Manager" } }
+  ],
+  "technologies": [
+    { "id": 1, "title": "Angular", "description": { "ru": "TypeScript-фреймворк от Google для SPA с модульной архитектурой. Разрабатываю корпоративные UI-модули, npm-пакеты табличных форм и интеграцию с NgRx.", "en": "Google's TypeScript framework for SPAs with modular architecture. I build enterprise UI modules, table-form npm packages, and NgRx integration." } },
+    { "id": 2, "title": "TypeScript", "description": { "ru": "Типизированный надмножество JavaScript. Использую для фронтенда (React, Angular) и бэкенда (Nest.js), чтобы ловить ошибки на этапе компиляции и упростить рефакторинг.", "en": "A typed superset of JavaScript. I use it for frontend (React, Angular) and backend (Nest.js) to catch errors at compile time and simplify refactoring." } },
+    { "id": 3, "title": "Go", "description": { "ru": "Компилируемый язык от Google с простой конкурентностью. Пишу на нём композитные API и микросервисы.", "en": "Google's compiled language with simple concurrency. I use it for composite APIs and microservices." } },
+    { "id": 4, "title": "Java", "description": { "ru": "Объектно-ориентированный язык для enterprise-систем. Применяю в микросервисной архитектуре вместе со Spring Boot: REST API, unit-тесты (JUnit), интеграция с Camunda.", "en": "An object-oriented language for enterprise systems. I use it in microservice architecture with Spring Boot: REST APIs, unit tests (JUnit), Camunda integration." } },
+    { "id": 5, "title": "Spring Boot", "description": { "ru": "Фреймворк для Java-микросервисов с автоконфигурацией. REST API, DI, интеграция с БД и очередями в enterprise-проектах.", "en": "A framework for Java microservices with auto-configuration. REST APIs, DI, database and queue integration in enterprise projects." } },
+    { "id": 6, "title": "Camunda", "description": { "ru": "Платформа BPMN/DMN для автоматизации бизнес-процессов. Моделировал процессы, писал unit-тесты для процессов и lint-проверки диаграмм.", "en": "A BPMN/DMN platform for business process automation. I modeled processes, wrote unit tests for processes, and lint checks for diagrams." } },
+    { "id": 7, "title": "NGINX", "description": { "ru": "Высокопроизводительный веб-сервер и reverse-proxy. Настраивал раздачу статики, gzip, кэширование Kerberos-заголовков и балансировку.", "en": "A high-performance web server and reverse proxy. I configured static file serving, gzip, Kerberos header caching, and load balancing." } },
+    { "id": 8, "title": "Elasticsearch", "description": { "ru": "Поисковый движок и хранилище логов. Ядро ELK-стека: индексация, полнотекстовый поиск и агрегации по логам приложений.", "en": "A search engine and log store. The core of the ELK stack: indexing, full-text search, and aggregations over application logs." } },
+    { "id": 9, "title": "Kibana", "description": { "ru": "UI для визуализации данных Elasticsearch. Дашборды, Discover и алерты для анализа логов и метрик.", "en": "A UI for Elasticsearch data visualization. Dashboards, Discover, and alerts for log and metric analysis." } },
+    { "id": 13, "title": "Postgres", "description": { "ru": "Реляционная СУБД с ACID и мощным SQL. Проектировал схемы, писал миграции и аналитические запросы для торговых и корпоративных систем.", "en": "A relational DBMS with ACID and powerful SQL. I designed schemas, wrote migrations, and analytical queries for trading and enterprise systems." } },
+    { "id": 14, "title": "Logstash", "description": { "ru": "ETL-пайплайн для сбора и трансформации логов. Парсинг, обогащение и отправка событий в Elasticsearch с ротацией индексов.", "en": "An ETL pipeline for log collection and transformation. Parsing, enrichment, and sending events to Elasticsearch with index rotation." } },
+    { "id": 15, "title": "Grafana", "description": { "ru": "Платформа мониторинга и дашбордов. Визуализация метрик приложений и инфраструктуры из Prometheus, Elasticsearch и других источников.", "en": "A monitoring and dashboard platform. Visualizes application and infrastructure metrics from Prometheus, Elasticsearch, and other sources." } },
+    { "id": 16, "title": "MongoDB", "description": { "ru": "Документоориентированная NoSQL-БД. Использовал для гибких схем данных на ранних этапах MVP и прототипов.", "en": "A document-oriented NoSQL database. I used it for flexible data schemas in early MVP and prototype stages." } },
+    { "id": 17, "title": "Redis", "description": { "ru": "In-memory хранилище key-value. Кэширование, сессии.", "en": "An in-memory key-value store. Caching and sessions." } },
+    { "id": 18, "title": "Kafka", "description": { "ru": "Распределённый брокер сообщений для event streaming. Асинхронный обмен между микросервисами с гарантией доставки и масштабированием.", "en": "A distributed message broker for event streaming. Asynchronous exchange between microservices with delivery guarantees and scaling." } },
+    { "id": 19, "title": "RabbitMQ", "description": { "ru": "Брокер сообщений AMQP. Использовал для decoupling сервисов, фоновых задач и надёжной доставки событий в SRM-системе.", "en": "An AMQP message broker. I used it for service decoupling, background jobs, and reliable event delivery in an SRM system." } },
+    { "id": 20, "title": "WebSocket", "description": { "ru": "Протокол двусторонней связи поверх TCP. Реализовал чат, онлайн-аукцион и push-уведомления; переключение с long polling снизило задержки на 40%.", "en": "A bidirectional communication protocol over TCP. I implemented chat, online auctions, and push notifications; switching from long polling reduced latency by 40%." } },
+    { "id": 21, "title": "BroadcastChannel", "description": { "ru": "Web API для обмена сообщениями между вкладками одного origin. Применил для синхронизации уведомлений без потери событий при нескольких открытых вкладках.", "en": "A Web API for messaging between tabs of the same origin. I used it to sync notifications without event loss across multiple open tabs." } },
+    { "id": 22, "title": "SharedWorker", "description": { "ru": "Фоновый поток, общий для нескольких вкладок. В паре с BroadcastChannel обеспечил единую точку обработки WebSocket-событий в браузере.", "en": "A background thread shared across multiple tabs. Together with BroadcastChannel, it provided a single point for handling WebSocket events in the browser." } },
+    { "id": 23, "title": "Chakra UI", "description": { "ru": "Component-библиотека React с доступными примитивами и темизацией. Ускоряет вёрстку интерфейсов без потери консистентности дизайна.", "en": "A React component library with accessible primitives and theming. Speeds up UI development without losing design consistency." } },
+    { "id": 24, "title": "Material UI", "description": { "ru": "React-компоненты по гайдлайнам Material Design. Применял для админ-панелей и форм с готовой типографикой и сеткой.", "en": "React components following Material Design guidelines. I used them for admin panels and forms with ready-made typography and grid." } },
+    { "id": 25, "title": "Storybook", "description": { "ru": "Изолированная среда для разработки и документирования UI-компонентов. Помогает команде собирать дизайн-систему и тестировать состояния компонентов.", "en": "An isolated environment for developing and documenting UI components. Helps teams build a design system and test component states." } },
+    { "id": 26, "title": "GitLab CI", "description": { "ru": "Встроенный CI/CD в GitLab. Настраивал пайплайны: автотесты, сборка Docker-образов, деплой на staging/production.", "en": "Built-in CI/CD in GitLab. I configured pipelines: automated tests, Docker image builds, deploy to staging/production." } },
+    { "id": 27, "title": "Jenkins", "description": { "ru": "Сервер автоматизации сборки и деплоя. Использовал для legacy-пайплайнов и интеграции с корпоративной инфраструктурой.", "en": "A build and deployment automation server. I used it for legacy pipelines and integration with corporate infrastructure." } },
+    { "id": 28, "title": "Jest", "description": { "ru": "Test runner для JavaScript/TypeScript. Unit-тесты React-компонентов и утилит; покрытие >70% на production-проектах.", "en": "A test runner for JavaScript/TypeScript. Unit tests for React components and utilities; >70% coverage on production projects." } },
+    { "id": 29, "title": "Playwright", "description": { "ru": "E2E-фреймворк для автоматизации браузера. Сценарии регрессии UI, cross-browser тесты и интеграция в GitLab CI.", "en": "An E2E framework for browser automation. UI regression scenarios, cross-browser tests, and GitLab CI integration." } },
+    { "id": 31, "title": "Next.js", "description": { "ru": "React-фреймворк с SSR/SSG и file-based routing. Использовал для SEO-страниц и серверного рендеринга в production-проектах.", "en": "A React framework with SSR/SSG and file-based routing. I used it for SEO pages and server-side rendering in production projects." } },
+    { "id": 32, "title": "Docker", "description": { "ru": "Контейнеризация приложений. Сборка образов, изоляция окружений и единообразный деплой через CI/CD.", "en": "Application containerization. Image builds, environment isolation, and consistent deployment via CI/CD." } },
+    { "id": 33, "title": "Highcharts", "description": { "ru": "Коммерческая JS-библиотека интерактивных графиков. Реализовал 10+ типов диаграмм для аналитики продаж и торговых дашбордов.", "en": "A commercial JS library for interactive charts. I implemented 10+ chart types for sales analytics and trading dashboards." } },
+    { "id": 34, "title": "D3.js", "description": { "ru": "Низкоуровневая библиотека для привязки данных к DOM/SVG. Использовал для кастомных визуализаций, где Highcharts не хватало гибкости.", "en": "A low-level library for binding data to DOM/SVG. I used it for custom visualizations where Highcharts lacked flexibility." } },
+    { "id": 35, "title": "Express.js", "description": { "ru": "Минималистичный HTTP-фреймворк для Node.js. Писал сервис аналитики продаж, REST API и middleware для JWT-авторизации.", "en": "A minimal HTTP framework for Node.js. I built a sales analytics service, REST APIs, and JWT authentication middleware." } },
+    { "id": 36, "title": "Redux", "description": { "ru": "Предсказуемый контейнер состояния для React (flux-архитектура). Основной инструмент управления данными в SPA; использовал RTK Query для API-слоя.", "en": "A predictable state container for React (Flux architecture). My main data management tool in SPAs; I used RTK Query for the API layer." } },
+    { "id": 37, "title": "Python", "description": { "ru": "Универсальный язык с богатой экосистемой. Использовал для бэкенда на Django и вспомогательных скриптов в fullstack-проектах.", "en": "A versatile language with a rich ecosystem. I used it for Django backends and utility scripts in fullstack projects." } },
+    { "id": 38, "title": "Django", "description": { "ru": "Python fullstack-фреймворк с ORM и admin-панелью. Использовал на фрилансе для быстрого прототипирования бэкенда и CRUD.", "en": "A Python fullstack framework with ORM and admin panel. I used it on freelance projects for rapid backend prototyping and CRUD." } },
+    { "id": 39, "title": "Nest.js", "description": { "ru": "Node.js-фреймворк с модульной архитектурой (Angular-style). Бэкенд для чата на WebSocket с нагрузкой до 500 одновременных соединений.", "en": "A Node.js framework with modular architecture (Angular-style). Backend for a WebSocket chat handling up to 500 concurrent connections." } },
+    { "id": 40, "title": "React", "description": { "ru": "Библиотека для построения UI на компонентах.", "en": "A library for building UI with components." } },
+    { "id": 41, "title": "Effector", "description": { "ru": "Реактивная библиотека управления состоянием с явными событиями и stores. Альтернатива Redux для проектов, где важна компактность и производительность.", "en": "A reactive state management library with explicit events and stores. A Redux alternative for projects where compactness and performance matter." } },
+    { "id": 42, "title": "NgRx", "description": { "ru": "Redux-паттерн для Angular (store, effects, selectors). Использую для сложных корпоративных форм и согласованного состояния между модулями.", "en": "The Redux pattern for Angular (store, effects, selectors). I use it for complex enterprise forms and consistent state across modules." } },
+    { "id": 43, "title": "rx.js", "description": { "ru": "Реактивная библиотека для работы с асинхронными потоками (Observables). Основа Angular и Nest.js — обработка событий, HTTP, WebSocket, debounce/throttle.", "en": "A reactive library for working with asynchronous streams (Observables). The foundation of Angular and Nest.js — event handling, HTTP, WebSocket, debounce/throttle." } },
+    { "id": 44, "title": "Kubernetes", "description": { "ru": "Оркестратор контейнеров для production. Деплой, масштабирование и self-healing микросервисов в кластере.", "en": "A container orchestrator for production. Deployment, scaling, and self-healing of microservices in a cluster." } },
+    { "id": 45, "title": "Jaeger ", "description": { "ru": "Распределённая трассировка запросов в микросервисах. Помогает находить узкие места и debug-ить цепочки вызовов между сервисами.", "en": "Distributed request tracing in microservices. Helps find bottlenecks and debug call chains between services." } },
+    { "id": 46, "title": "Docker compose", "description": { "ru": "Оркестрация multi-container окружений для локальной разработки и staging. Описываю сервисы, сети и volumes в YAML.", "en": "Orchestration of multi-container environments for local development and staging. I define services, networks, and volumes in YAML." } },
+    { "id": 47, "title": "ESlint", "description": { "ru": "Линтер для JavaScript/TypeScript. Единые правила кода, автофикс и интеграция в pre-commit и CI.", "en": "A linter for JavaScript/TypeScript. Unified code rules, auto-fix, and integration into pre-commit and CI." } },
+    { "id": 48, "title": "golangci-lint", "description": { "ru": "Агрегатор линтеров для Go. Статический анализ, stylecheck и проверка безопасности в Go-микросервисах.", "en": "A linter aggregator for Go. Static analysis, stylecheck, and security checks in Go microservices." } },
+    { "id": 49, "title": "ISO-7bit", "description": { "ru": "Формат управляющих программ для станков с ЧПУ (G-code в 7-bit ASCII). Редактировал постпроцессоры и писал управляющие программы на производстве.", "en": "Control program format for CNC machines (G-code in 7-bit ASCII). I edited post-processors and wrote control programs in manufacturing." } },
+    { "id": 50, "title": "CNC", "description": { "ru": "Создание управляющих программ для станков с ЧПУ", "en": "Creating control programs for CNC machines" } },
+    { "id": 51, "title": "OpenAPI", "description": { "ru": "Спецификация REST API (Swagger). Автоматизировал генерацию клиентского кода: RTK Query-хуки, WebSocket-события, permissions.", "en": "REST API specification (Swagger). I automated client code generation: RTK Query hooks, WebSocket events, permissions." } }
+  ]
+}

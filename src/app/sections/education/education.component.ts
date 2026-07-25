@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
+import { finalize } from 'rxjs';
 import { MarginsDirective } from '../../shared/directive/margins/margins.directive';
 import { SectionWrapperComponent } from '../../shared/ui-kit/section-wrapper/section-wrapper.component';
 import { EduApiService } from '../../services/api/edu-api.service';
@@ -18,14 +19,24 @@ export class EducationComponent {
   private eduApiService = inject(EduApiService);
 
   public education = signal<EducationDto[]>([]);
+  public isLoading = signal(true);
+  readonly skeletonCards = [1, 2, 3];
 
   constructor() {
     bindLanguageReload(() => this.loadEducation());
   }
 
   private loadEducation(): void {
-    this.eduApiService.getEducation().subscribe((items) => {
-      this.education.set(items);
-    });
+    this.isLoading.set(true);
+    this.eduApiService
+      .getEducation()
+      // finalize нужен для ветки без значений (ошибка гасится в сервисе).
+      .pipe(finalize(() => this.isLoading.set(false)))
+      .subscribe((items) => {
+        this.education.set(items);
+        // Данные из SSR приходят первыми, а следом может догружаться перевод:
+        // держать скелетон до конца второго ответа незачем.
+        this.isLoading.set(false);
+      });
   }
 }

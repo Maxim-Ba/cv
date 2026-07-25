@@ -1,0 +1,12 @@
+// Разная ширина заглушек, чтобы ряд чипов не выглядел таблицей.
+.technologies__skeleton-chip {
+  width: 96px;
+
+  &:nth-child(3n) {
+    width: 128px;
+  }
+
+  &:nth-child(4n) {
+    width: 72px;
+  }
+}

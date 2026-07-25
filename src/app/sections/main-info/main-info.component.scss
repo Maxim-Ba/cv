@@ -54,6 +54,36 @@
   max-width: 52ch;
 }
 
+// Высоты повторяют реальные строки hero, чтобы подстановка данных не двигала кнопки.
+.hero__skeleton {
+  margin-bottom: var(--cv-space-5);
+  max-width: 52ch;
+}
+
+.hero__skeleton-line {
+  &--greeting {
+    width: 30%;
+    height: var(--cv-font-body);
+    margin-bottom: var(--cv-space-2);
+  }
+
+  &--name {
+    width: 60%;
+    height: var(--cv-font-display);
+  }
+
+  &--role {
+    width: 45%;
+    height: var(--cv-font-h3);
+    margin: var(--cv-space-2) 0 var(--cv-space-4);
+  }
+
+  &--pitch {
+    width: 100%;
+    height: calc(var(--cv-font-body) * var(--cv-line-height-body) * 2);
+  }
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;

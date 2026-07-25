@@ -7,6 +7,8 @@
   --cv-text-primary: rgba(0, 0, 0, 0.87);
   --cv-text-muted: rgba(0, 0, 0, 0.6);
   --cv-border: rgba(0, 0, 0, 0.08);
+  --cv-skeleton-base: rgba(0, 0, 0, 0.08);
+  --cv-skeleton-shine: rgba(255, 255, 255, 0.45);
   --cv-hero-gradient: linear-gradient(135deg, rgba(94, 53, 177, 0.08) 0%, rgba(68, 138, 255, 0.06) 100%);
 
   --cv-space-1: 4px;
@@ -50,6 +52,8 @@
   --cv-text-primary: rgba(255, 255, 255, 0.87);
   --cv-text-muted: rgba(255, 255, 255, 0.6);
   --cv-border: rgba(255, 255, 255, 0.12);
+  --cv-skeleton-base: rgba(255, 255, 255, 0.08);
+  --cv-skeleton-shine: rgba(255, 255, 255, 0.14);
   --cv-hero-gradient: linear-gradient(135deg, rgba(149, 117, 205, 0.12) 0%, rgba(130, 177, 255, 0.08) 100%);
 
   --cv-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -80,6 +84,48 @@
 
 .cv-chip {
   border-radius: var(--cv-radius-pill) !important;
+}
+
+.cv-skeleton {
+  display: block;
+  border-radius: var(--cv-radius-sm);
+  background-color: var(--cv-skeleton-base, rgba(0, 0, 0, 0.08));
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--cv-skeleton-shine, rgba(255, 255, 255, 0.45)),
+    transparent
+  );
+  background-repeat: no-repeat;
+  background-size: 240px 100%;
+  animation: cv-skeleton-shine 1.4s ease-in-out infinite;
+}
+
+.cv-skeleton--text {
+  height: 1em;
+  margin-block: 0.35em;
+}
+
+.cv-skeleton--chip {
+  display: inline-block;
+  height: 32px;
+  border-radius: var(--cv-radius-pill);
+}
+
+@keyframes cv-skeleton-shine {
+  from {
+    background-position: -240px 0;
+  }
+
+  to {
+    background-position: calc(240px + 100%) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-skeleton {
+    animation: none;
+  }
 }
 
 .with-margin {

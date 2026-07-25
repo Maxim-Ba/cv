@@ -1,12 +1,20 @@
 import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { TranslocoService } from '@jsverse/transloco';
 import { Subject, firstValueFrom } from 'rxjs';
+import {
+  AppLang,
+  DEFAULT_LANG,
+  LANG_COOKIE_KEY,
+  LANG_STORAGE_KEY,
+  SSR_LANG,
+  isAppLang,
+} from './language.model';
 
-export type AppLang = 'ru' | 'en';
+export type { AppLang } from './language.model';
 
-const STORAGE_KEY = 'cv_lang';
-const COOKIE_KEY = 'cv_lang';
+const STORAGE_KEY = LANG_STORAGE_KEY;
+const COOKIE_KEY = LANG_COOKIE_KEY;
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +22,10 @@ const COOKIE_KEY = 'cv_lang';
 export class LanguageService {
   private transloco = inject(TranslocoService);
   private platformId = inject(PLATFORM_ID);
+  private document = inject(DOCUMENT);
+  private ssrLang = inject(SSR_LANG, { optional: true });
 
-  readonly currentLang = signal<AppLang>('ru');
+  readonly currentLang = signal<AppLang>(DEFAULT_LANG);
   readonly translationsReady = signal(false);
   private readonly langChangesSubject = new Subject<AppLang>();
   readonly langChanges$ = this.langChangesSubject.asObservable();
@@ -23,7 +33,7 @@ export class LanguageService {
   init(): Promise<void> {
     const lang = isPlatformBrowser(this.platformId)
       ? this.resolveInitialLang()
-      : this.readCookieLang();
+      : (this.ssrLang ?? DEFAULT_LANG);
     return this.applyLang(lang, false);
   }
 
@@ -43,10 +53,11 @@ export class LanguageService {
       this.currentLang.set(lang);
       this.transloco.setActiveLang(lang);
       this.translationsReady.set(true);
+      // На сервере тоже проставляем, иначе SSR-разметка уедет с lang="ru".
+      this.document.documentElement.lang = lang;
       if (isPlatformBrowser(this.platformId)) {
         localStorage.setItem(STORAGE_KEY, lang);
         document.cookie = `${COOKIE_KEY}=${lang};path=/;max-age=31536000;SameSite=Lax`;
-        document.documentElement.lang = lang;
       }
       if (notify) {
         this.langChangesSubject.next(lang);
@@ -56,30 +67,27 @@ export class LanguageService {
 
   private resolveInitialLang(): AppLang {
     if (isPlatformBrowser(this.platformId)) {
-      const stored = localStorage.getItem(STORAGE_KEY) as AppLang | null;
-      if (stored === 'ru' || stored === 'en') {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (isAppLang(stored)) {
         return stored;
       }
-      const cookieMatch = document.cookie.match(new RegExp(`(?:^|; )${COOKIE_KEY}=([^;]+)`));
-      if (cookieMatch?.[1] === 'ru' || cookieMatch?.[1] === 'en') {
-        return cookieMatch[1] as AppLang;
+      const cookieLang = this.readCookieLang();
+      if (cookieLang) {
+        return cookieLang;
       }
       const browser = navigator.language.toLowerCase();
       if (browser.startsWith('en')) {
         return 'en';
       }
     }
-    return 'ru';
+    return DEFAULT_LANG;
   }
 
-  readCookieLang(): AppLang {
+  readCookieLang(): AppLang | null {
     if (!isPlatformBrowser(this.platformId)) {
-      return 'ru';
+      return this.ssrLang;
     }
     const cookieMatch = document.cookie.match(new RegExp(`(?:^|; )${COOKIE_KEY}=([^;]+)`));
-    if (cookieMatch?.[1] === 'en') {
-      return 'en';
-    }
-    return 'ru';
+    return isAppLang(cookieMatch?.[1]) ? cookieMatch[1] : null;
   }
 }

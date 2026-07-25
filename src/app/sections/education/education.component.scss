@@ -21,6 +21,29 @@
   }
 }
 
+.education-card--skeleton:hover {
+  box-shadow: none;
+  border-color: var(--cv-border);
+}
+
+.education-card__skeleton-year {
+  width: 72px;
+  height: calc(var(--cv-font-caption) + var(--cv-space-2));
+  border-radius: var(--cv-radius-pill);
+  margin-bottom: var(--cv-space-2);
+}
+
+.education-card__skeleton-course {
+  width: 55%;
+  height: var(--cv-font-h3);
+  margin-bottom: var(--cv-space-2);
+}
+
+.education-card__skeleton-org {
+  width: 35%;
+  height: var(--cv-font-body);
+}
+
 .education-card__year {
   display: inline-block;
   font-size: var(--cv-font-caption);

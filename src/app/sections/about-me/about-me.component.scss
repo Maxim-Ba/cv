@@ -20,6 +20,24 @@
   }
 }
 
+.about-me__skeleton {
+  .cv-skeleton--text {
+    line-height: var(--cv-line-height-body);
+
+    &:nth-child(2) {
+      width: 96%;
+    }
+
+    &:nth-child(3) {
+      width: 88%;
+    }
+
+    &:last-child {
+      width: 70%;
+    }
+  }
+}
+
 .about-me__badges {
   display: flex;
   flex-wrap: wrap;

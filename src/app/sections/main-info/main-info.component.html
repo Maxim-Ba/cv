@@ -6,6 +6,8 @@
       [alt]="hero()?.fullName ?? 'CV'"
       width="96"
       height="96"
+      fetchpriority="high"
+      decoding="async"
     />
   </div>
   <div class="hero__body">
@@ -14,6 +16,13 @@
       <h1 class="hero__name">{{ data.fullName }}</h1>
       <p class="hero__role">{{ data.title }}</p>
       <p class="hero__pitch">{{ data.pitch }}</p>
+    } @else if (isLoading()) {
+      <div class="hero__skeleton" aria-hidden="true">
+        <span class="cv-skeleton hero__skeleton-line hero__skeleton-line--greeting"></span>
+        <span class="cv-skeleton hero__skeleton-line hero__skeleton-line--name"></span>
+        <span class="cv-skeleton hero__skeleton-line hero__skeleton-line--role"></span>
+        <span class="cv-skeleton hero__skeleton-line hero__skeleton-line--pitch"></span>
+      </div>
     }
     <div class="hero__actions">
       <app-gitlab-link></app-gitlab-link>

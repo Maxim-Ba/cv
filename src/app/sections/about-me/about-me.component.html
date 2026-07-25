@@ -1,7 +1,15 @@
 <div class="about-me">
   <div class="about-me__bio">
-    @for (paragraph of bioParagraphs(); track $index) {
-      <p>{{ paragraph }}</p>
+    @if (isLoading() && !bioParagraphs().length) {
+      <div class="about-me__skeleton" aria-hidden="true">
+        @for (line of skeletonLines; track $index) {
+          <span class="cv-skeleton cv-skeleton--text"></span>
+        }
+      </div>
+    } @else {
+      @for (paragraph of bioParagraphs(); track $index) {
+        <p>{{ paragraph }}</p>
+      }
     }
   </div>
   <aside class="about-me__aside">

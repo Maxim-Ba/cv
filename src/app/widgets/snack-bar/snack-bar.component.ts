@@ -50,6 +50,7 @@ export class SnackBarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.snackBarRef?.dismiss();
-    this.stabServiceSubscription.unsubscribe();
+    // Компонент может быть уничтожен до ngOnInit — подписки тогда ещё нет.
+    this.stabServiceSubscription?.unsubscribe();
   }
 }

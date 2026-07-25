@@ -41,7 +41,7 @@ export class NotifyMaximService {
     this.availabilityChecked = true;
 
     this.http
-      .get(`${this.config.rootUrl}/api/contact`, {
+      .get(`${this.config.rootUrl}/contact`, {
         observe: 'response',
         context: new HttpContext().set(SKIP_HTTP_ERROR_NOTIFY, true),
       })

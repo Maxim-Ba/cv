@@ -7,6 +7,9 @@
 @use './app/sections/work-history/work-history.component.scss' as work-history;
 
 @include mat.core();
+// Шрифты хостим сами: два render-blocking запроса к fonts.googleapis.com
+// стоили лишних DNS + TLS до первой отрисовки.
+@import '@fontsource-variable/inter/index.css';
 @import 'material-icons/iconfont/filled.css';
 @import 'material-icons/iconfont/outlined.css';
 
@@ -16,7 +19,7 @@ $balashov-cv-client-accent: mat.define-palette(mat.$blue-palette, A200, A100, A4
 $balashov-cv-client-warn: mat.define-palette(mat.$red-palette);
 
 $cv-typography: mat.define-typography-config(
-  $font-family: 'Inter, Roboto, "Helvetica Neue", sans-serif'
+  $font-family: '"Inter Variable", Inter, Roboto, "Helvetica Neue", sans-serif'
 );
 
 $light-theme: mat.define-light-theme(
@@ -60,7 +63,7 @@ body {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Inter, Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Inter Variable', Inter, Roboto, 'Helvetica Neue', sans-serif;
   background: var(--cv-surface);
   color: var(--cv-text-primary);
 }

@@ -3,11 +3,12 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideTransloco } from '@jsverse/transloco';
-import { provideClientHydration } from '@angular/platform-browser';
+import { provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
 
 import { routes } from './app.routes';
 import { provideApiConfiguration } from './api/api-configuration';
 import { environment } from '../environments/environment';
+import { apiTransferStateInterceptor } from './interceptors/api-transfer-state.interceptor';
 import { ssrBaseUrlInterceptor } from './interceptors/ssr-base-url.interceptor';
 import { httpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { languageInterceptor } from './interceptors/language.interceptor';
@@ -22,10 +23,20 @@ function initLanguage(): () => Promise<void> {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideClientHydration(),
+    provideClientHydration(
+      // `/api` переносится через apiTransferStateInterceptor: встроенный кеш
+      // не умеет сопоставлять относительный URL браузера с абсолютным URL SSR.
+      // Для `/assets/i18n/*.json` штатный механизм работает и остаётся включённым.
+      withHttpTransferCacheOptions({ filter: (req) => !req.url.includes('/api') }),
+    ),
     provideHttpClient(
       withFetch(),
-      withInterceptors([ssrBaseUrlInterceptor, languageInterceptor, httpErrorInterceptor]),
+      withInterceptors([
+        apiTransferStateInterceptor,
+        ssrBaseUrlInterceptor,
+        languageInterceptor,
+        httpErrorInterceptor,
+      ]),
     ),
     provideAnimationsAsync(),
     provideApiConfiguration(`${environment.apiUrl}/api`),

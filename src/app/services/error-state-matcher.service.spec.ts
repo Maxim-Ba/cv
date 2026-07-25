@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ErrorStateMatcherService } from './error-state-matcher.service';
+import { MyErrorStateMatcher } from './error-state-matcher.service';
 
-describe('ErrorStateMatcherService', () => {
-  let service: ErrorStateMatcherService;
+describe('MyErrorStateMatcher', () => {
+  let service: MyErrorStateMatcher;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ErrorStateMatcherService);
+    service = TestBed.inject(MyErrorStateMatcher);
   });
 
   it('should be created', () => {

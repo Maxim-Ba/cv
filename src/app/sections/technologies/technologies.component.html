@@ -1,7 +1,17 @@
 <app-tag-filter></app-tag-filter>
 <div class="chips-flow">
-  @for(tech of technologies(); track tech.id){
-  <app-technology-item [title]="tech.title ?? ''" [description]="tech.description ?? null" [tags]="tech.tags ?? []"
-    [logo]="tech.logoUrl ?? null"></app-technology-item>
+  @if (isLoading() && !technologies().length) {
+    @for (chip of skeletonChips; track $index) {
+      <span class="cv-skeleton cv-skeleton--chip technologies__skeleton-chip" aria-hidden="true"></span>
+    }
+  } @else {
+    @for (tech of technologies(); track tech.id) {
+      <app-technology-item
+        [title]="tech.title ?? ''"
+        [description]="tech.description ?? null"
+        [tags]="tech.tags ?? []"
+        [logo]="tech.logoUrl ?? null"
+      ></app-technology-item>
+    }
   }
 </div>

@@ -1,6 +1,6 @@
-@if (isLoading()) {
+@if (isLoading() && !works().length) {
 <p class="loading-state">{{ 'workHistory.loading' | transloco }}</p>
-} @else if (hasError()) {
+} @else if (hasError() && !works().length) {
 <p class="error-state">{{ 'workHistory.error' | transloco }}</p>
 } @else {
 <div class="timeline">
