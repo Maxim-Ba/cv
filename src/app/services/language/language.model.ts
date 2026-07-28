@@ -13,6 +13,9 @@ export const LANG_COOKIE_KEY = 'cv_lang';
  */
 export const SSR_LANG = new InjectionToken<AppLang>('SSR_LANG');
 
+/** Абсолютный путь к `browser/` dist — для чтения i18n с диска на SSR. */
+export const SSR_BROWSER_DIST_FOLDER = new InjectionToken<string>('SSR_BROWSER_DIST_FOLDER');
+
 /**
  * Язык, на котором SSR отрендерил разметку и сложил данные в `TransferState`.
  * Браузер сверяет его со своим выбором: при расхождении серверные данные всё

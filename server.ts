@@ -5,7 +5,11 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { basename, dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
-import { SSR_LANG, resolveLangFromHeaders } from './src/app/services/language/language.model';
+import {
+  SSR_BROWSER_DIST_FOLDER,
+  SSR_LANG,
+  resolveLangFromHeaders,
+} from './src/app/services/language/language.model';
 
 /** Имена собранных бандлов вида `main-Q44ZNHMX.js` — содержат хеш контента. */
 const HASHED_FILE_NAME = /-[A-Z0-9]{8}\.[a-z0-9]+$/;
@@ -13,6 +17,7 @@ const HASHED_FILE_NAME = /-[A-Z0-9]{8}\.[a-z0-9]+$/;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
+  server.set('trust proxy', true);
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
@@ -74,6 +79,7 @@ export function app(): express.Express {
         publicPath: browserDistFolder,
         providers: [
           { provide: APP_BASE_HREF, useValue: baseUrl },
+          { provide: SSR_BROWSER_DIST_FOLDER, useValue: browserDistFolder },
           {
             provide: SSR_LANG,
             useValue: resolveLangFromHeaders(headers.cookie, headers['accept-language']),
