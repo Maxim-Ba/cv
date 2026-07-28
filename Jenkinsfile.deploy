@@ -1,0 +1,83 @@
+// Применение k8s-манифестов приложений (без secrets и PostgreSQL).
+// Запускать при изменениях в k8s/: OTEL, probes, resources, ingress, services.
+// Образы обновляются отдельно через Jenkinsfile в cv / cv-backend / cv-contact-me.
+pipeline {
+  agent any
+
+  environment {
+    NS = 'cv-portfolio'
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Namespace') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'kubectl apply -f k8s/namespace.yaml'
+        }
+      }
+    }
+
+    stage('Services') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'kubectl apply -f k8s/services/'
+        }
+      }
+    }
+
+    stage('Deployments') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh '''
+            kubectl apply -f k8s/deployments/cv-backend-deploy.yaml
+            kubectl apply -f k8s/deployments/cv-frontend-deploy.yaml
+            kubectl apply -f k8s/deployments/cv-contact-me-deploy.yaml
+          '''
+        }
+      }
+    }
+
+    stage('Ingress') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'kubectl apply -f k8s/ingress/ingress.yaml'
+        }
+      }
+    }
+
+    stage('Rollout') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh '''
+            kubectl rollout status deployment/cv-backend -n ${NS} --timeout=300s
+            kubectl rollout status deployment/cv-frontend -n ${NS} --timeout=300s
+            kubectl rollout status deployment/cv-contact-me -n ${NS} --timeout=300s
+          '''
+        }
+      }
+    }
+
+    stage('Verify') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'kubectl get deploy,svc,ingress -n ${NS}'
+        }
+      }
+    }
+  }
+
+  post {
+    success {
+      echo 'Manifests applied. Image tags unchanged — use app CD pipelines to update images.'
+    }
+    failure {
+      echo 'Deploy manifests failed!'
+    }
+  }
+}

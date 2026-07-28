@@ -1,0 +1,17 @@
+# Шаблон для Jenkins credential `cv-backend-env` (Secret file).
+# Скопируйте, заполните реальными значениями, загрузите в Jenkins.
+# Не коммитьте файл с реальными паролями.
+
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=CHANGE_ME
+POSTGRES_DB=cvdb
+SERVER_ADDRESS=0.0.0.0:3333
+MIGRATION_PATH=migrations
+LOG_LEVEL=info
+APP_ENV=production
+ALLOWED_ORIGIN=https://cv.balashov-maxim.ru
+ADMIN_USER=admin
+ADMIN_PASSWORD=CHANGE_ME
+APP_SECRET=CHANGE_ME_MIN_32_CHARS_RANDOM_STRING

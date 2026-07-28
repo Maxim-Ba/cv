@@ -754,6 +754,11 @@ kubectl get ingress -n cv-portfolio
 
 ## 10. Jenkins CI/CD
 
+> **Полный runbook** деплоя cv + cv-backend + observability (фазы, credentials, webhooks):  
+> [cv-observability/docs/JENKINS-DEPLOY.md](https://github.com/Maxim-Ba/cv-observability/blob/main/docs/JENKINS-DEPLOY.md)  
+> Bootstrap приложений: `Jenkinsfile.bootstrap` в корне этого репозитория.  
+> Обновление манифестов (OTEL, probes, ingress и т.д.): `Jenkinsfile.deploy` — без secrets и PostgreSQL.
+
 ### 10.1 Установка Jenkins на сервере
 
 ```bash
@@ -954,6 +959,24 @@ pipeline {
 2. Branch Sources → GitHub → указать URL репозитория
 3. Build Configuration → by Jenkinsfile (путь: `Jenkinsfile`)
 4. Сохранить → Scan Repository Now
+
+#### Дополнительные jobs для репозитория `cv`
+
+| Jenkinsfile | Назначение | Когда запускать |
+|-------------|------------|-----------------|
+| `Jenkinsfile` | Сборка и деплой frontend-образа | push в `cv` (webhook) |
+| `Jenkinsfile.deploy` | `kubectl apply` манифестов приложений | после правок в `k8s/` (OTEL, ingress, probes) |
+| `Jenkinsfile.bootstrap` | Первичный подъём namespace, secrets, PostgreSQL | один раз вручную |
+
+Для `Jenkinsfile.deploy` и `Jenkinsfile.bootstrap`:
+
+1. New Item → **Pipeline** (имя: `cv-deploy-manifests` или `cv-bootstrap`)
+2. Pipeline → Definition: **Pipeline script from SCM**
+3. SCM: Git, репозиторий `cv`, ветка `main` / `master`
+4. Script Path: `Jenkinsfile.deploy` (или `Jenkinsfile.bootstrap`)
+5. Сохранить → **Build Now**
+
+> `Jenkinsfile.deploy` не создаёт secrets и не трогает PostgreSQL. Образы в deployment остаются прежними — для нового кода используйте CD pipeline соответствующего приложения.
 
 ### 10.6 Webhook GitHub → Jenkins
 
