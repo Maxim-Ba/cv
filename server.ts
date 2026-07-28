@@ -53,6 +53,11 @@ export function app(): express.Express {
     res.status(404).json({ error: 'Not found' });
   });
 
+  // Лёгкий endpoint для k8s probes — без SSR.
+  server.get('/healthz', (_req, res) => {
+    res.status(200).send('ok');
+  });
+
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
