@@ -1,6 +1,6 @@
 // Применение k8s-манифестов приложений (без secrets и PostgreSQL).
 // Запускать при изменениях в k8s/: OTEL, probes, resources, ingress, services.
-// Образы обновляются отдельно через Jenkinsfile в cv / cv-backend / cv-contact-me.
+// Образы обновляются отдельно через Jenkinsfile в cv / cv-backend.
 pipeline {
   agent any
 
@@ -37,7 +37,6 @@ pipeline {
           sh '''
             kubectl apply -f k8s/deployments/cv-backend-deploy.yaml
             kubectl apply -f k8s/deployments/cv-frontend-deploy.yaml
-            kubectl apply -f k8s/deployments/cv-contact-me-deploy.yaml
           '''
         }
       }
@@ -57,7 +56,6 @@ pipeline {
           sh '''
             kubectl rollout status deployment/cv-backend -n ${NS} --timeout=300s
             kubectl rollout status deployment/cv-frontend -n ${NS} --timeout=300s
-            kubectl rollout status deployment/cv-contact-me -n ${NS} --timeout=300s
           '''
         }
       }
